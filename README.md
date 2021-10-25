@@ -5,4 +5,4 @@ Inorder to enter the current Fintech market, Life Bank decided to develop its ow
 
 Life Bank aims to introduce Fintech in the current market, increase the user experience and allow a fast, easy and secure management of their economies.
 
-At the same time, suers can make purchases, invest in the market, pay for services and more.
+At the same time, users can make purchases, invest in the market, pay for services and more.
