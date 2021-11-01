@@ -10,4 +10,28 @@ export const GeneralComponentsStylesheet = StyleSheet.create({
     width: "80%",
     borderRadius: 10,
   },
+
+  darkTheme: {
+    backgroundColor: dark,
+    flex: 1,
+    justifyContent: "center",
+  },
+  lightTheme: {
+    backgroundColor: light,
+    flex: 1,
+    justifyContent: "center",
+  },
+  typographyNormal: {
+    textAlign: "center",
+    fontFamily: "System",
+    color: main,
+    fontSize: 18,
+  },
+  typographyBold: {
+    textAlign: "center",
+    fontFamily: "System",
+    fontWeight: "bold",
+    color: main,
+    fontSize: 18,
+  },
 });
