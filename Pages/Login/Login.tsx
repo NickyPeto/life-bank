@@ -1,7 +1,7 @@
-import { View, Text, SafeAreaView } from "react-native";
-
 import React from "react";
-import { LoginStylesheet } from "../Components/Stylesheets/LoginStylesheet";
+import { View, Text, SafeAreaView } from "react-native";
+import { MainButton } from "../../Components/Button";
+import { LoginStylesheet } from "../../Components/Stylesheets/LoginStylesheet";
 
 const Login = () => {
   return (
@@ -16,6 +16,7 @@ const Login = () => {
           nihil consequuntur est modi animi fugiat assumenda, facere harum ab
           perferendis ipsum tenetur.
         </Text>
+        <MainButton title={"continue"} />
       </View>
     </SafeAreaView>
   );

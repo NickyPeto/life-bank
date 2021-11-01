@@ -1,6 +1,28 @@
 {
-  "extends": "expo/tsconfig.base",
-  "compilerOptions": {
-    "strict": true
-  }
+   "extends": "expo/tsconfig.base",
+   "compilerOptions": {
+      "strict": true,
+      "outDir": "./built",
+      "target": "es5"
+   },
+   // "include": [
+   // "./src/**/*.ts",
+   // "./src/**/*"
+   // ],
+   // "exclude": [
+   // "./out.d.ts",
+   // "node_modules",
+   // ],
+   // "baseUrl": ".",
+   // "paths": {
+   //    "*": [
+   //       "src/*"
+   //    ],
+   //    "tests": [
+   //       "tests/*"
+   //    ],
+   //    "@components/*": [
+   //       "src/components/*"
+   //    ],
+   // },
 }
