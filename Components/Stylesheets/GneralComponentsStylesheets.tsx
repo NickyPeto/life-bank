@@ -34,4 +34,17 @@ export const GeneralComponentsStylesheet = StyleSheet.create({
     color: main,
     fontSize: 18,
   },
+  formContainer: {
+    padding: "5%",
+    marginBottom: "30%",
+    justifyContent: "flex-start",
+  },
+
+  inputStyle: {
+    color: main,
+    borderRadius: 10,
+    height: 70,
+    backgroundColor: main,
+    opacity: 0.1,
+  },
 });
