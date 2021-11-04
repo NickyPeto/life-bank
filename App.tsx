@@ -1,12 +1,10 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { Text, View } from "react-native";
-import Login from "./Pages/Login/Login";
+import AppNavigator from "./Routes/AppNavigator";
 
 export default function App() {
   return (
     <>
-      <Login />
+      <AppNavigator />
     </>
   );
 }

@@ -24,10 +24,7 @@ const Login = () => {
           nihil consequuntur est modi animi fugiat assumenda, facere harum ab
           perferendis ipsum tenetur.
         </Text>
-        <MainButton
-          title={"continue"}
-          press={() => navigation.navigate("Home")}
-        />
+        <MainButton title={"continue"} press={() => redirect()} />
       </View>
     </SafeAreaView>
   );
