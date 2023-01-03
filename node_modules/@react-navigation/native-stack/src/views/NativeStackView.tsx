@@ -2,6 +2,7 @@ import {
   getHeaderTitle,
   Header,
   HeaderBackButton,
+  HeaderBackContext,
   SafeAreaProviderCompat,
   Screen,
 } from '@react-navigation/elements';
@@ -25,18 +26,37 @@ type Props = {
   descriptors: NativeStackDescriptorMap;
 };
 
+const TRANSPARENT_PRESENTATIONS = [
+  'transparentModal',
+  'containedTransparentModal',
+];
+
 export default function NativeStackView({ state, descriptors }: Props) {
+  const parentHeaderBack = React.useContext(HeaderBackContext);
+
   return (
     <SafeAreaProviderCompat>
       <View style={styles.container}>
         {state.routes.map((route, i) => {
           const isFocused = state.index === i;
-          const canGoBack = i !== 0;
           const previousKey = state.routes[i - 1]?.key;
+          const nextKey = state.routes[i + 1]?.key;
           const previousDescriptor = previousKey
             ? descriptors[previousKey]
             : undefined;
+          const nextDescriptor = nextKey ? descriptors[nextKey] : undefined;
           const { options, navigation, render } = descriptors[route.key];
+
+          const headerBack = previousDescriptor
+            ? {
+                title: getHeaderTitle(
+                  previousDescriptor.options,
+                  previousDescriptor.route.name
+                ),
+              }
+            : parentHeaderBack;
+
+          const canGoBack = headerBack !== undefined;
 
           const {
             header,
@@ -51,9 +71,13 @@ export default function NativeStackView({ state, descriptors }: Props) {
             headerStyle,
             headerShadowVisible,
             headerTransparent,
-            contentStyle,
+            headerBackground,
             headerBackTitle,
+            presentation,
+            contentStyle,
           } = options;
+
+          const nextPresentation = nextDescriptor?.options.presentation;
 
           return (
             <Screen
@@ -66,14 +90,7 @@ export default function NativeStackView({ state, descriptors }: Props) {
               header={
                 header !== undefined ? (
                   header({
-                    back: previousDescriptor
-                      ? {
-                          title: getHeaderTitle(
-                            previousDescriptor.options,
-                            previousDescriptor.route.name
-                          ),
-                        }
-                      : undefined,
+                    back: headerBack,
                     options,
                     route,
                     navigation,
@@ -115,7 +132,8 @@ export default function NativeStackView({ state, descriptors }: Props) {
                     }
                     headerRight={
                       typeof headerRight === 'function'
-                        ? ({ tintColor }) => headerRight({ tintColor })
+                        ? ({ tintColor }) =>
+                            headerRight({ tintColor, canGoBack })
                         : headerRight
                     }
                     headerTitle={
@@ -126,29 +144,34 @@ export default function NativeStackView({ state, descriptors }: Props) {
                     }
                     headerTitleAlign={headerTitleAlign}
                     headerTitleStyle={headerTitleStyle}
-                    headerStyle={[
-                      headerTransparent
-                        ? {
-                            position: 'absolute',
-                            backgroundColor: 'transparent',
-                          }
-                        : null,
-                      headerStyle,
-                      headerShadowVisible === false
-                        ? { shadowOpacity: 0, borderBottomWidth: 0 }
-                        : null,
-                    ]}
+                    headerTransparent={headerTransparent}
+                    headerShadowVisible={headerShadowVisible}
+                    headerBackground={headerBackground}
+                    headerStyle={headerStyle}
                   />
                 )
               }
               style={[
                 StyleSheet.absoluteFill,
-                { display: isFocused ? 'flex' : 'none' },
+                {
+                  display:
+                    isFocused ||
+                    (nextPresentation != null &&
+                      TRANSPARENT_PRESENTATIONS.includes(nextPresentation))
+                      ? 'flex'
+                      : 'none',
+                },
+                presentation != null &&
+                TRANSPARENT_PRESENTATIONS.includes(presentation)
+                  ? { backgroundColor: 'transparent' }
+                  : null,
               ]}
             >
-              <View style={[styles.contentContainer, contentStyle]}>
-                {render()}
-              </View>
+              <HeaderBackContext.Provider value={headerBack}>
+                <View style={[styles.contentContainer, contentStyle]}>
+                  {render()}
+                </View>
+              </HeaderBackContext.Provider>
             </Screen>
           );
         })}

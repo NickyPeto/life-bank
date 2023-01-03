@@ -4,7 +4,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import { rootNavigationRef } from "./RootNavigationRef";
 import Login from "../Pages/Login/Login";
 import Home from "../Pages/Home/Home";
-import { StackNavigationOptions } from "@react-navigation/stack";
 
 export type RootStackParamList = {
   Login: undefined;

@@ -1,14 +1,13 @@
 import React from "react";
 import { View, Text, SafeAreaView } from "react-native";
-import { dark, light, main } from "../../Components/ColorPallete";
 import { MainButton } from "../../Components/Button";
 import { useNavigation } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
+import {  NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../Routes/AppNavigator";
 import { GeneralComponentsStylesheet } from "../../Components/Stylesheets/GneralComponentsStylesheets";
 
 const Home = () => {
-  type LoginStack = StackNavigationProp<RootStackParamList, "Login">;
+  type LoginStack = NativeStackNavigationProp<RootStackParamList, "Login">;
   const navigation = useNavigation<LoginStack>();
   function redirect() {
     navigation.navigate("Login");
