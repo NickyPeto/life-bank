@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, SafeAreaView } from "react-native";
 import { MainButton } from "../../Components/Button";
 import { useNavigation } from "@react-navigation/native";
-import {  NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../Routes/AppNavigator";
 import { GeneralComponentsStylesheet } from "../../Components/Stylesheets/GneralComponentsStylesheets";
 

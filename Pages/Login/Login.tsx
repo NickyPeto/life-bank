@@ -3,12 +3,12 @@ import { View, Text, SafeAreaView, Image } from "react-native";
 import { MainButton } from "../../Components/Button";
 import { LoginStylesheet } from "../../Components/Stylesheets/LoginStylesheet";
 import { useNavigation } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../Routes/AppNavigator";
-import Form from "./Form";
+import FormSheetComponent from "../../Components/FormSheetComponent/FormSheet";
 
 const Login = () => {
-  type HomeStack = StackNavigationProp<RootStackParamList, "Login">;
+  type HomeStack = NativeStackNavigationProp<RootStackParamList, "Login">;
   const navigation = useNavigation<HomeStack>();
   function redirect() {
     navigation.navigate("Home");
@@ -23,10 +23,10 @@ const Login = () => {
           />
         </View>
         <View style={LoginStylesheet.customTabLeft}>
-          <Form />
-          <View>
-            <MainButton title={"continue"} press={() => redirect()} />
-          </View>
+          <FormSheetComponent />
+        </View>
+        <View>
+          <MainButton title={"continue"} press={() => redirect()} />
         </View>
       </View>
     </SafeAreaView>

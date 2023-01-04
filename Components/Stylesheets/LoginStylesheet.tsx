@@ -1,5 +1,3 @@
-import { HeaderHeightContext } from "@react-navigation/stack";
-import React from "react";
 import { StyleSheet } from "react-native";
 import { main, dark, light } from "../ColorPallete";
 
@@ -23,7 +21,7 @@ export const LoginStylesheet = StyleSheet.create({
     fontSize: 18,
   },
   mainHeader: {
-    //  flex: 1,
+    flex: 1,
     width: "100%",
     height: "100%",
     backgroundColor: main,
