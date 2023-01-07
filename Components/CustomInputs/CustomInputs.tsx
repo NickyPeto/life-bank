@@ -8,14 +8,17 @@ type PlaceholderProps = {
   icon?: any;
 };
 
-export const CustomInputs: React.FC<PlaceholderProps> = (props) => {
+export const CustomInputs: React.FC<PlaceholderProps> = ({
+  placeholder,
+  icon,
+}) => {
   return (
     <Input
       inputStyle={GeneralComponentsStylesheet.inputStyle}
-      placeholder={props.placeholder}
+      placeholder={placeholder}
       placeholderTextColor={mainLighter}
       inputContainerStyle={GeneralComponentsStylesheet.inputContainerStyle}
-      rightIcon={props.placeholder === "password" ? props.icon : null}
+      rightIcon={placeholder === "password" ? icon : null}
     />
   );
 };
