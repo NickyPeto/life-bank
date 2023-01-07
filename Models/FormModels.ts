@@ -1,12 +1,15 @@
 export interface FormModel {
-  login: {
-    email: string;
-    password: string;
-  };
-  register: {
-    name: string;
-    surname: string;
-    email: string;
-    password: string;
+  //This is optional until we have the logic finished
+  props?: {
+    login: {
+      email: string;
+      password: string;
+    };
+    register: {
+      name: string;
+      surname: string;
+      email: string;
+      password: string;
+    };
   };
 }
