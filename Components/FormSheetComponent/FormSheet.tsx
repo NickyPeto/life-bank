@@ -1,11 +1,19 @@
-import { Button } from "react-native-elements";
 import Form from "./Form";
+import { FormModel } from "../../Models/FormModels";
+import TabComponent from "../TabsComponent/TabComponent";
+import { useState } from "react";
 
-const FormSheetComponent = ({ props }: any) => {
+const FormSheetComponent: React.FC<FormModel> = ({ props }) => {
+  const [login, setLogin] = useState<boolean>(true);
+
+  function toggleLogin() {
+    setLogin(!login);
+  }
+
   return (
     <>
-      <Button>{props.title}</Button>
-      <Form {...props} />
+      <TabComponent />
+      <Form props={props} />
     </>
   );
 };
