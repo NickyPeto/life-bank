@@ -1,7 +1,11 @@
 import { Input } from "react-native-elements";
 import { GeneralComponentsStylesheet } from "../Stylesheets/GneralComponentsStylesheets";
 
-export const CustomInputs: React.FC<any> = (props) => {
+type PlaceholderProps = {
+  props: string | undefined;
+};
+
+export const CustomInputs: React.FC<PlaceholderProps> = ({ props }) => {
   return (
     <Input
       inputStyle={{
