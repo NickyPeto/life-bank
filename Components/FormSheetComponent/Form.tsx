@@ -4,6 +4,10 @@ import CustomInputs from "../CustomInputs/CustomInputs";
 
 import { LoginModel } from "../../Models/FormModels";
 
+type Inputs = {
+  placeholder: string[];
+};
+
 const Form: React.FC<LoginModel> = (props) => {
   //FIXME: buscar un nombre mejor.
   const array = Object.keys(props);
