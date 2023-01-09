@@ -1,14 +1,26 @@
-import { View } from "react-native";
+import { View, Text } from "react-native";
 import { GeneralComponentsStylesheet } from "../Stylesheets/GneralComponentsStylesheets";
-import { Input } from "react-native-elements";
-import { FormModel } from "../../Models/FormModels";
 import CustomInputs from "../CustomInputs/CustomInputs";
 
-const Form: React.FC<FormModel> = ({ props }) => {
+import { useEffect } from "react";
+import { LoginModel } from "../../Models/FormModels";
+
+type Inputs = {
+  placeholder: string[];
+};
+
+const Form: React.FC<LoginModel> = (props) => {
+  const array = Object.keys(props);
   return (
     <View style={GeneralComponentsStylesheet.formContainer}>
-      <CustomInputs props={props?.login.email} />
-      <CustomInputs props={props?.login.password} />
+      {array.map((values) => {
+        return (
+          <View key={values}>
+            <CustomInputs placeholder={values} />
+          </View>
+        );
+      })}
+      <Text style={{ color: "red" }}></Text>
     </View>
   );
 };

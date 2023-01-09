@@ -1,15 +1,10 @@
-import { useState } from "react";
 import { main } from "../ColorPallete";
 import { GeneralComponentsStylesheet } from "../Stylesheets/GneralComponentsStylesheets";
 import { View } from "react-native";
 import { Button } from "react-native-elements";
+import { CustomTabProps } from "../../Models/SharedProps";
 
-export const TabComponent: React.FC<any> = (props) => {
-  const [active, setActive] = useState<boolean>(true);
-
-  function handleClick() {
-    setActive(!active);
-  }
+export const TabComponent: React.FC<CustomTabProps> = (props) => {
   return (
     <View
       style={{
@@ -26,11 +21,11 @@ export const TabComponent: React.FC<any> = (props) => {
           title={"Login"}
           titleStyle={{ color: main }}
           buttonStyle={
-            active
+            props.active
               ? GeneralComponentsStylesheet.tabButtonLeft
               : GeneralComponentsStylesheet.inactiveTabButtonLeft
           }
-          onPress={handleClick}
+          onPress={() => props.handleClick()}
         ></Button>
       </View>
       <View style={{ flex: 1 }}>
@@ -38,11 +33,11 @@ export const TabComponent: React.FC<any> = (props) => {
           title={"Register"}
           titleStyle={{ color: main }}
           buttonStyle={
-            !active
+            !props.active
               ? GeneralComponentsStylesheet.tabButtonRight
               : GeneralComponentsStylesheet.inactiveTabButtonRight
           }
-          onPress={handleClick}
+          onPress={() => props.handleClick()}
         ></Button>
       </View>
     </View>
