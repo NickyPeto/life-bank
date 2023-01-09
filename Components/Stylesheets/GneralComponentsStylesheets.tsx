@@ -1,5 +1,13 @@
 import { StyleSheet } from "react-native";
-import { dark, main, light, disabled } from "../ColorPallete";
+import {
+  dark,
+  main,
+  light,
+  disabled,
+  secondary,
+  mainLighter,
+  mainLight,
+} from "../ColorPallete";
 
 export const GeneralComponentsStylesheet = StyleSheet.create({
   buttonContainer: {
@@ -43,16 +51,35 @@ export const GeneralComponentsStylesheet = StyleSheet.create({
     color: main,
     fontSize: 18,
   },
+  typographyNormalWhite: {
+    textAlign: "center",
+    fontFamily: "System",
+    color: light,
+    fontSize: 30,
+  },
+  typographyCaptionWhite: {
+    textAlign: "center",
+    fontFamily: "System",
+    color: light,
+    opacity: 0.7,
+    fontSize: 20,
+  },
+  typographyBoldWhite: {
+    textAlign: "center",
+    fontFamily: "System",
+    fontWeight: "bold",
+    color: light,
+    fontSize: 50,
+  },
   formContainer: {
     backgroundColor: light,
     display: "flex",
     flex: 2,
-    paddingTop: 45,
+    paddingTop: 50,
     paddingBottom: 20,
     flexDirection: "column",
     justifyContent: "center",
   },
-
   inputStyle: {
     color: main,
     borderRadius: 20,
@@ -73,15 +100,46 @@ export const GeneralComponentsStylesheet = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
   },
   inactiveTabButtonRight: {
-    borderTopRightRadius: 20,
     borderBottomLeftRadius: 20,
-    backgroundColor: disabled,
+    backgroundColor: main,
+    color: light,
   },
   inactiveTabButtonLeft: {
     borderTopLeftRadius: 20,
     borderBottomRightRadius: 20,
-    backgroundColor: disabled,
+    backgroundColor: main,
+    color: light,
+  },
+  homeHeader: {
+    display: "flex",
+    flex: 1,
+    backgroundColor: main,
+    justifyContent: "center",
+    alignItems: "flex-start",
+    paddingLeft: 20,
+    paddingTop: 20,
+  },
+  homeTabContainer: {
+    display: "flex",
+    flex: 2,
+  },
+  shortcutTabContainer: {
+    display: "flex",
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-around",
+    paddingTop: 20,
+  },
+  shortcutTabIconWrapper: {
+    display: "flex",
+    height: 70,
+    width: 70,
+    backgroundColor: mainLighter,
+    opacity: 0.7,
+    borderRadius: 20,
+    justifyContent: "center",
   },
 });

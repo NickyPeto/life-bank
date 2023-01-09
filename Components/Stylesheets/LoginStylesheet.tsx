@@ -25,6 +25,10 @@ export const LoginStylesheet = StyleSheet.create({
     display: "flex",
     flex: 1,
     flexDirection: "column",
+  },
+  mainHeader: {
+    display: "flex",
+    flex: 1,
     backgroundColor: main,
   },
   logoContainer: {

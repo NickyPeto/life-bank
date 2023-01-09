@@ -1,4 +1,4 @@
-import { main } from "../ColorPallete";
+import { light, main } from "../ColorPallete";
 import { GeneralComponentsStylesheet } from "../Stylesheets/GneralComponentsStylesheets";
 import { View } from "react-native";
 import { Button } from "react-native-elements";
@@ -10,7 +10,6 @@ export const TabComponent: React.FC<CustomTabProps> = (props) => {
       style={{
         display: "flex",
         flexDirection: "row",
-        backgroundColor: "white",
         alignItems: "center",
         justifyContent: "center",
         borderRadius: 30,
@@ -19,7 +18,7 @@ export const TabComponent: React.FC<CustomTabProps> = (props) => {
       <View style={{ flex: 1 }}>
         <Button
           title={"Login"}
-          titleStyle={{ color: main }}
+          titleStyle={{ color: props.active ? main : light }}
           buttonStyle={
             props.active
               ? GeneralComponentsStylesheet.tabButtonLeft
@@ -31,7 +30,7 @@ export const TabComponent: React.FC<CustomTabProps> = (props) => {
       <View style={{ flex: 1 }}>
         <Button
           title={"Register"}
-          titleStyle={{ color: main }}
+          titleStyle={{ color: !props.active ? main : light }}
           buttonStyle={
             !props.active
               ? GeneralComponentsStylesheet.tabButtonRight

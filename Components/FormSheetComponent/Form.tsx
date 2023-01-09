@@ -5,6 +5,7 @@ import CustomInputs from "../CustomInputs/CustomInputs";
 import { LoginModel } from "../../Models/FormModels";
 
 const Form: React.FC<LoginModel> = (props) => {
+  //FIXME: buscar un nombre mejor.
   const array = Object.keys(props);
   return (
     <View style={GeneralComponentsStylesheet.formContainer}>
@@ -15,7 +16,6 @@ const Form: React.FC<LoginModel> = (props) => {
           </View>
         );
       })}
-      <Text style={{ color: "red" }}></Text>
     </View>
   );
 };

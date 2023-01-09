@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { View, SafeAreaView, Image } from "react-native";
+import React, { useState } from "react";
+import { View, SafeAreaView } from "react-native";
 import { CustomButton } from "../../Components/Button";
 import { LoginStylesheet } from "../../Components/Stylesheets/LoginStylesheet";
 import { useNavigation } from "@react-navigation/native";
@@ -9,6 +9,7 @@ import { CustomTabProps } from "../../Models/SharedProps";
 import TabComponent from "../../Components/TabsComponent/TabComponent";
 import Form from "../../Components/FormSheetComponent/Form";
 import { LoginModel, RegisterModel } from "../../Models/FormModels";
+import SvgLogo from "../../assets/svgs";
 
 const Login = () => {
   const [login, setLogin] = useState<boolean>(true);
@@ -28,7 +29,6 @@ const Login = () => {
     active: login,
     handleClick: handleClick,
   };
-
   const loginData: LoginModel = {
     email: "E-mail",
     password: "Password",
@@ -47,10 +47,9 @@ const Login = () => {
           {login ? (
             <>
               <View style={LoginStylesheet.logoContainer}>
-                <Image
-                  style={LoginStylesheet.logo}
-                  source={require("../../assets/Images/LIFE.BANK.WHITE.png")}
-                />
+                <View style={LoginStylesheet.logo}>
+                  <SvgLogo height={"100%"} width={"100%"} fill={"#fff"} />
+                </View>
               </View>
               <TabComponent {...tabdata} />
               <Form {...loginData} />
