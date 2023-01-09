@@ -2,17 +2,17 @@ import { Input } from "react-native-elements";
 import { GeneralComponentsStylesheet } from "../Stylesheets/GneralComponentsStylesheets";
 
 type PlaceholderProps = {
-  props: string | undefined;
+  placeholder: string | undefined;
 };
 
-export const CustomInputs: React.FC<PlaceholderProps> = ({ props }) => {
+export const CustomInputs: React.FC<PlaceholderProps> = (props) => {
   return (
     <Input
       inputStyle={{
         color: "black",
         padding: 20,
       }}
-      placeholder={props}
+      placeholder={props.placeholder}
       inputContainerStyle={GeneralComponentsStylesheet.inputStyle}
     />
   );
