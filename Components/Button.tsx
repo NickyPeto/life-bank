@@ -2,11 +2,7 @@ import React from "react";
 import { Button } from "react-native-elements";
 import { GeneralComponentsStylesheet } from "./Stylesheets/GneralComponentsStylesheets";
 import { View } from "react-native";
-
-type ButtonProps = {
-  title: string;
-  press: () => void;
-};
+import { ButtonProps } from "../Models/SharedProps";
 
 export const CustomButton: React.FC<ButtonProps> = ({ title, press }) => {
   return (
