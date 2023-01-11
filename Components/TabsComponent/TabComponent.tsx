@@ -1,46 +1,66 @@
-import { light, main } from "../ColorPallete";
-import { GeneralComponentsStylesheet } from "../Stylesheets/GneralComponentsStylesheets";
-import { View } from "react-native";
-import { Button } from "react-native-elements";
+import { light, main } from "../../Stylesheets/ColorPallete";
+import { Pressable, View, Text } from "react-native";
 import { CustomTabProps } from "../../Models/SharedProps";
+import { tabComponentStylesheet } from "../../Stylesheets/TabComponentStyleshet";
+import { Button } from "react-native-elements";
 
-export const TabComponent: React.FC<CustomTabProps> = (props) => {
-  return (
+export const TabComponent: React.FC<CustomTabProps> = (props) => (
+  <View style={tabComponentStylesheet.tabMainCointainer}>
+    {/* 
+    FIXME: MOVE THIS TO STYLESHEET */}
     <View
       style={{
         display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
+        flexDirection: "column",
         justifyContent: "center",
-        borderRadius: 30,
+        alignContent: "center",
+        position: "absolute",
+        width: 100,
+        zIndex: 0,
+        marginLeft: 100,
       }}
     >
-      <View style={{ flex: 1 }}>
-        <Button
-          title={"Login"}
-          titleStyle={{ color: props.active ? main : light }}
-          buttonStyle={
-            props.active
-              ? GeneralComponentsStylesheet.tabButtonLeft
-              : GeneralComponentsStylesheet.inactiveTabButtonLeft
-          }
-          onPress={() => props.handleClick()}
-        ></Button>
-      </View>
-      <View style={{ flex: 1 }}>
-        <Button
-          title={"Register"}
-          titleStyle={{ color: !props.active ? main : light }}
-          buttonStyle={
-            !props.active
-              ? GeneralComponentsStylesheet.tabButtonRight
-              : GeneralComponentsStylesheet.inactiveTabButtonRight
-          }
-          onPress={() => props.handleClick()}
-        ></Button>
-      </View>
+      <View
+        style={{
+          backgroundColor: main,
+          height: 20,
+          width: 100,
+        }}
+      ></View>
+      <View
+        style={{
+          backgroundColor: light,
+          height: 20,
+          width: 100,
+        }}
+      ></View>
     </View>
-  );
-};
+    <View style={{ flex: 1 }}>
+      <Button
+        titleStyle={{ color: props.active ? main : light }}
+        title={props.title}
+        buttonStyle={
+          props.active
+            ? tabComponentStylesheet.tabButtonLeft
+            : tabComponentStylesheet.inactiveTabButtonLeft
+        }
+        onPress={() => props.handleClick()}
+      ></Button>
+    </View>
+
+    <View style={{ flex: 1 }}>
+      <Button
+        titleStyle={{ color: !props.active ? main : light }}
+        title={props.secondTitle}
+        buttonStyle={
+          !props.active
+            ? tabComponentStylesheet.tabButtonRight
+            : tabComponentStylesheet.inactiveTabButtonRight
+        }
+        onPress={() => props.handleClick()}
+      ></Button>
+    </View>
+  </View>
+);
 
 export default TabComponent;

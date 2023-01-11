@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import { View, SafeAreaView } from "react-native";
+import { View, SafeAreaView, Text } from "react-native";
 import { CustomButton } from "../../Components/Button";
-import { LoginStylesheet } from "../../Components/Stylesheets/LoginStylesheet";
+import { LoginStylesheet } from "../../Stylesheets/LoginStylesheet";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../Routes/AppNavigator";
 import { CustomTabProps } from "../../Models/SharedProps";
 import TabComponent from "../../Components/TabsComponent/TabComponent";
 import Form from "../../Components/FormSheetComponent/Form";
-import { LoginModel, RegisterModel } from "../../Models/FormModels";
+import { FormModel, LoginModel, RegisterModel } from "../../Models/FormModels";
 import SvgLogo from "../../assets/svgs";
+import { light } from "../../Stylesheets/ColorPallete";
 
 const Login = () => {
   const [login, setLogin] = useState<boolean>(true);
@@ -27,17 +28,24 @@ const Login = () => {
   //Mock data, this will be changed
   const tabdata: CustomTabProps = {
     active: login,
+    title: "Login",
+    secondTitle: "Register",
     handleClick: handleClick,
   };
-  const loginData: LoginModel = {
-    email: "E-mail",
-    password: "Password",
+  const loginData: FormModel = {
+    placeholders: {
+      email: "E-mail",
+      password: "Password",
+    },
+    extraData: true,
   };
-  const registerData: RegisterModel = {
-    name: "Name",
-    surname: "Surname",
-    email: "e-mail",
-    password: "Password",
+  const registerData: FormModel = {
+    placeholders: {
+      name: "Name",
+      surname: "Surname",
+      email: "E-mail",
+      password: "Password",
+    },
   };
 
   return (
@@ -52,7 +60,16 @@ const Login = () => {
                 </View>
               </View>
               <TabComponent {...tabdata} />
-              <Form {...loginData} />
+              <Form {...loginData}></Form>
+              <View
+                style={{
+                  display: "flex",
+                  position: "relative",
+                  top: 0,
+                  bottom: 0,
+                  backgroundColor: light,
+                }}
+              ></View>
             </>
           ) : (
             <>
@@ -63,7 +80,6 @@ const Login = () => {
             </>
           )}
         </>
-
         <CustomButton title={"Continue"} press={() => redirect()} />
       </View>
     </SafeAreaView>
