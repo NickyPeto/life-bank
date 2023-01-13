@@ -1,5 +1,4 @@
 import { View } from "react-native";
-
 import SearchBar from "../../Components/Searchar/SearchBar";
 import ListComponent, {
   data,
