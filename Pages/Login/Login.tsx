@@ -22,7 +22,7 @@ const Login = () => {
   type HomeStack = NativeStackNavigationProp<RootStackParamList, "Login">;
   const navigation = useNavigation<HomeStack>();
   function redirect() {
-    navigation.navigate("Home");
+    navigation.navigate("Tab");
   }
 
   //Mock data, this will be changed

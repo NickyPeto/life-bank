@@ -8,6 +8,12 @@ export const typographyStylesheet = StyleSheet.create({
     color: main,
     fontSize: 18,
   },
+  typographyNormalSmallerWhite: {
+    textAlign: "center",
+    fontFamily: "System",
+    color: light,
+    fontSize: 18,
+  },
   typographyBold: {
     textAlign: "center",
     fontFamily: "System",

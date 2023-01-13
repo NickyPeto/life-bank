@@ -10,7 +10,9 @@ import { typographyStylesheet } from "../../Stylesheets/Typography";
 import { homeStyleSheet } from "../../Stylesheets/HomeStylesheet";
 import { Icon } from "react-native-elements";
 import { light } from "../../Stylesheets/ColorPallete";
-import ListComponent from "../../Components/ListComponent/ListComponent";
+import ListComponent, {
+  data,
+} from "../../Components/ListComponent/ListComponent";
 
 const Home = () => {
   type LoginStack = NativeStackNavigationProp<RootStackParamList, "Login">;
@@ -51,7 +53,11 @@ const Home = () => {
       </View>
       <View style={homeStyleSheet.homeTabContainer}>
         <ShortcutsTab />
-        <ListComponent />
+        <ListComponent
+          props={data}
+          hasHeader={true}
+          header={"Latest Transactions"}
+        />
         {/* <CustomButton title={"go back"} press={() => redirect()} /> */}
       </View>
     </SafeAreaView>
