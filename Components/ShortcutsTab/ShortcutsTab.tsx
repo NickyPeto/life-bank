@@ -2,7 +2,8 @@ import { View } from "react-native";
 import { GeneralComponentsStylesheet } from "../../Stylesheets/GneralComponentsStylesheets";
 import { Icon } from "react-native-elements";
 
-const ShortcutsTab = (props: any) => {
+//FIXME: fix typing
+const ShortcutsTab = () => {
   return (
     <View style={GeneralComponentsStylesheet.shortcutTabContainer}>
       <View style={GeneralComponentsStylesheet.shortcutTabIconWrapper}>

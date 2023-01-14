@@ -9,12 +9,12 @@ import ShortcutsTab from "../../Components/ShortcutsTab/ShortcutsTab";
 import { typographyStylesheet } from "../../Stylesheets/Typography";
 import { homeStyleSheet } from "../../Stylesheets/HomeStylesheet";
 import { Icon } from "react-native-elements";
-import { light } from "../../Stylesheets/ColorPallete";
+import { light, main } from "../../Stylesheets/ColorPallete";
 import ListComponent, {
   data,
 } from "../../Components/ListComponent/ListComponent";
 
-const Home = () => {
+const Home: React.FC<any> = () => {
   type LoginStack = NativeStackNavigationProp<RootStackParamList, "Login">;
   const navigation = useNavigation<LoginStack>();
   function redirect() {

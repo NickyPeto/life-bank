@@ -2,18 +2,20 @@ import { View, Text } from "react-native";
 import { Icon } from "react-native-elements";
 import { light, main } from "../../Stylesheets/ColorPallete";
 import { typographyStylesheet } from "../../Stylesheets/Typography";
-import { homeStyleSheet } from "../../Stylesheets/HomeStylesheet";
+import ShortcutsTab from "../../Components/ShortcutsTab/ShortcutsTab";
 
 const Profile = (props: any) => {
   return (
-    <View>
+    <View
+      style={{
+        display: "flex",
+        flex: 2,
+      }}
+    >
       <View
         style={{
           backgroundColor: main,
           display: "flex",
-          height: "50%",
-          justifyContent: "center",
-          alignContent: "center",
           padding: 40,
           borderBottomLeftRadius: 20,
           borderBottomRightRadius: 20,
@@ -26,7 +28,6 @@ const Profile = (props: any) => {
         <View
           style={{
             display: "flex",
-            flex: 1,
             flexDirection: "row",
             justifyContent: "space-between",
             alignItems: "flex-end",
@@ -35,6 +36,7 @@ const Profile = (props: any) => {
           <View
             style={{
               display: "flex",
+              flex: 1,
               flexDirection: "column",
               justifyContent: "center",
               alignItems: "flex-start",
@@ -69,11 +71,14 @@ const Profile = (props: any) => {
       <View
         style={{
           display: "flex",
-          height: "50%",
+          flex: 1,
           justifyContent: "center",
           alignContent: "center",
         }}
-      ></View>
+      >
+        <ShortcutsTab />
+        <ShortcutsTab />
+      </View>
     </View>
   );
 };
