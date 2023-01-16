@@ -8,7 +8,7 @@ export const typographyStylesheet = StyleSheet.create({
     color: main,
     fontSize: 18,
   },
-  typographyNormalSmallerWhite: {
+  typographyCaptionWhite: {
     textAlign: "center",
     fontFamily: "System",
     color: light,
@@ -21,20 +21,27 @@ export const typographyStylesheet = StyleSheet.create({
     color: main,
     fontSize: 18,
   },
-  typographyNormalWhite: {
+  typographyHeaderWhite: {
     textAlign: "center",
     fontFamily: "System",
     color: light,
     fontSize: 30,
   },
-  typographyNormalBoldWhite: {
+  typographyHeadingBoldWhite: {
     textAlign: "center",
     fontFamily: "System",
     color: light,
     fontSize: 25,
     fontWeight: "bold",
   },
-  typographyCaptionWhite: {
+  typographyNormalBoldWhite: {
+    textAlign: "center",
+    fontFamily: "System",
+    color: light,
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+  typographyDimmedCaptionWhite: {
     textAlign: "center",
     fontFamily: "System",
     color: light,

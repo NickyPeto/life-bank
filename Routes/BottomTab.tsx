@@ -1,4 +1,7 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import {
+  BottomTabNavigationOptions,
+  createBottomTabNavigator,
+} from "@react-navigation/bottom-tabs";
 import Home from "../Pages/Home/Home";
 import Transactions from "../Pages/Transactions/Transactions";
 import Profile from "../Pages/Profile/Profile";
@@ -6,25 +9,28 @@ import { dark, light, main, mainLight } from "../Stylesheets/ColorPallete";
 import { Icon } from "react-native-elements";
 import { View } from "react-native";
 
+export const ScreenOptions: BottomTabNavigationOptions = {
+  headerShown: true,
+  tabBarShowLabel: false,
+  headerTintColor: light,
+  headerTitleAlign: "center",
+  headerShadowVisible: false,
+  headerStyle: {
+    backgroundColor: main,
+    shadowColor: dark,
+  },
+  tabBarStyle: {
+    height: 60,
+  },
+  tabBarActiveBackgroundColor: main,
+  tabBarActiveTintColor: mainLight,
+  tabBarInactiveBackgroundColor: main,
+};
+
 export default function BottomTab() {
   const Tab = createBottomTabNavigator();
   return (
-    <Tab.Navigator
-      initialRouteName="Tab"
-      screenOptions={{
-        headerShown: true,
-        tabBarShowLabel: false,
-        headerTintColor: light,
-        headerTitleAlign: "center",
-        headerStyle: {
-          backgroundColor: main,
-          shadowColor: dark,
-        },
-        tabBarActiveBackgroundColor: main,
-        tabBarActiveTintColor: mainLight,
-        tabBarInactiveBackgroundColor: main,
-      }}
-    >
+    <Tab.Navigator initialRouteName="Tab" screenOptions={ScreenOptions}>
       <Tab.Screen
         name="Home"
         component={Home}

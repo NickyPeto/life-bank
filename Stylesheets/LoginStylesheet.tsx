@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
-import { main, dark, light } from "./ColorPallete";
+
+import { main, light } from "./ColorPallete";
 
 export const LoginStylesheet = StyleSheet.create({
   container: {
@@ -41,5 +42,10 @@ export const LoginStylesheet = StyleSheet.create({
     width: "85%",
     height: "35%",
     alignSelf: "center",
+  },
+  formWrapper: {
+    display: "flex",
+    flex: 2,
+    paddingTop: "20%",
   },
 });

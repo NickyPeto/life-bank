@@ -1,6 +1,7 @@
 import { Input } from "react-native-elements";
+
 import { GeneralComponentsStylesheet } from "../../Stylesheets/GneralComponentsStylesheets";
-import { main, mainLighter } from "../../Stylesheets/ColorPallete";
+import { mainLighter } from "../../Stylesheets/ColorPallete";
 
 type PlaceholderProps = {
   placeholder: string | undefined;
@@ -10,14 +11,10 @@ type PlaceholderProps = {
 export const CustomInputs: React.FC<PlaceholderProps> = (props) => {
   return (
     <Input
-      inputStyle={{
-        color: main,
-        padding: 20,
-        fontWeight: "500",
-      }}
+      inputStyle={GeneralComponentsStylesheet.inputStyle}
       placeholder={props.placeholder}
       placeholderTextColor={mainLighter}
-      inputContainerStyle={GeneralComponentsStylesheet.inputStyle}
+      inputContainerStyle={GeneralComponentsStylesheet.inputContainerStyle}
       rightIcon={props.placeholder === "password" ? props.icon : null}
     />
   );

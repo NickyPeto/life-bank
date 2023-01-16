@@ -1,7 +1,8 @@
 import { FlatList, View, Text } from "react-native";
+
 import ListItem from "./ListItem";
-import { light } from "../../Stylesheets/ColorPallete";
 import { typographyStylesheet } from "../../Stylesheets/Typography";
+import { ListComponentStylesheet } from "../../Stylesheets/ListComponentStylesheet";
 
 //TODO: This will come from either mock bank api or my own api
 export const data = [
@@ -107,22 +108,9 @@ export const data = [
 
 //TODO: type this props explicitly
 const ListComponent: React.FC<any> = (props) => {
-  //TODO: move to stylesheet
   return (
-    <View
-      style={{
-        display: "flex",
-        flexGrow: 2,
-        padding: 10,
-        marginRight: 10,
-        marginLeft: 10,
-        elevation: 10,
-        backgroundColor: light,
-        borderTopRightRadius: 20,
-        borderTopLeftRadius: 20,
-      }}
-    >
-      <View style={{ marginBottom: 10 }}>
+    <View style={ListComponentStylesheet.listComponent}>
+      <View style={ListComponentStylesheet.listComponentWrapper}>
         {props.hasHeader ? (
           <>
             <Text style={typographyStylesheet.typographyBold}>

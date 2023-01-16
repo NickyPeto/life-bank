@@ -1,10 +1,9 @@
 import { View, Text } from "react-native";
-import { GeneralComponentsStylesheet } from "../../Stylesheets/GneralComponentsStylesheets";
-import CustomInputs from "../CustomInputs/CustomInputs";
 
-import { FormModel, LoginModel, RegisterModel } from "../../Models/FormModels";
-import { Icon } from "react-native-elements";
+import { GeneralComponentsStylesheet } from "../../Stylesheets/GneralComponentsStylesheets";
+import { FormModel } from "../../Models/FormModels";
 import { main } from "../../Stylesheets/ColorPallete";
+import CustomInputs from "../CustomInputs/CustomInputs";
 
 const Form: React.FC<FormModel> = ({ placeholders, extraData }) => {
   //FIXME: buscar un nombre mejor.

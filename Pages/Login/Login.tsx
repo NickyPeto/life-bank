@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { View, SafeAreaView, Text } from "react-native";
-import { CustomButton } from "../../Components/Button";
-import { LoginStylesheet } from "../../Stylesheets/LoginStylesheet";
+import { View, SafeAreaView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+
 import { RootStackParamList } from "../../Routes/AppNavigator";
 import { CustomTabProps } from "../../Models/SharedProps";
 import TabComponent from "../../Components/TabsComponent/TabComponent";
 import Form from "../../Components/FormSheetComponent/Form";
-import { FormModel, LoginModel, RegisterModel } from "../../Models/FormModels";
+import { FormModel } from "../../Models/FormModels";
 import SvgLogo from "../../assets/svgs";
-import { light } from "../../Stylesheets/ColorPallete";
+import { CustomButton } from "../../Components/Button";
+import { LoginStylesheet } from "../../Stylesheets/LoginStylesheet";
 
 const Login = () => {
   const [login, setLogin] = useState<boolean>(true);
@@ -61,19 +61,10 @@ const Login = () => {
               </View>
               <TabComponent {...tabdata} />
               <Form {...loginData}></Form>
-              <View
-                style={{
-                  display: "flex",
-                  position: "relative",
-                  top: 0,
-                  bottom: 0,
-                  backgroundColor: light,
-                }}
-              ></View>
             </>
           ) : (
             <>
-              <View style={{ display: "flex", flex: 2, paddingTop: "20%" }}>
+              <View style={LoginStylesheet.formWrapper}>
                 <TabComponent {...tabdata} />
                 <Form {...registerData} />
               </View>

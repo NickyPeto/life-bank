@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { light, main } from "./ColorPallete";
+import { main } from "./ColorPallete";
 
 export const homeStyleSheet = StyleSheet.create({
   homeHeader: {

@@ -1,13 +1,5 @@
 import { StyleSheet } from "react-native";
-import {
-  dark,
-  main,
-  light,
-  disabled,
-  mainLight,
-  mainLighter,
-  mainUltraLight,
-} from "./ColorPallete";
+import { dark, main, light, mainUltraLight } from "./ColorPallete";
 
 export const GeneralComponentsStylesheet = StyleSheet.create({
   buttonContainer: {
@@ -47,6 +39,11 @@ export const GeneralComponentsStylesheet = StyleSheet.create({
     justifyContent: "center",
   },
   inputStyle: {
+    color: main,
+    padding: 20,
+    fontWeight: "500",
+  },
+  inputContainerStyle: {
     borderRadius: 20,
     height: 70,
     borderColor: "transparent",
@@ -74,5 +71,10 @@ export const GeneralComponentsStylesheet = StyleSheet.create({
     shadowRadius: 3,
     borderRadius: 20,
     justifyContent: "center",
+  },
+  container: {
+    display: "flex",
+    height: "100%",
+    justifyContent: "flex-start",
   },
 });

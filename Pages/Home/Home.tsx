@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, SafeAreaView } from "react-native";
-import { CustomButton } from "../../Components/Button";
+
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../Routes/AppNavigator";
@@ -9,7 +9,7 @@ import ShortcutsTab from "../../Components/ShortcutsTab/ShortcutsTab";
 import { typographyStylesheet } from "../../Stylesheets/Typography";
 import { homeStyleSheet } from "../../Stylesheets/HomeStylesheet";
 import { Icon } from "react-native-elements";
-import { light, main } from "../../Stylesheets/ColorPallete";
+import { light } from "../../Stylesheets/ColorPallete";
 import ListComponent, {
   data,
 } from "../../Components/ListComponent/ListComponent";
@@ -58,7 +58,6 @@ const Home: React.FC<any> = () => {
           hasHeader={true}
           header={"Latest Transactions"}
         />
-        {/* <CustomButton title={"go back"} press={() => redirect()} /> */}
       </View>
     </SafeAreaView>
   );

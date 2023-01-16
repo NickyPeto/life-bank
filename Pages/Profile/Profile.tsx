@@ -1,47 +1,21 @@
 import { View, Text } from "react-native";
 import { Icon } from "react-native-elements";
-import { light, main } from "../../Stylesheets/ColorPallete";
+
+import { light } from "../../Stylesheets/ColorPallete";
 import { typographyStylesheet } from "../../Stylesheets/Typography";
 import ShortcutsTab from "../../Components/ShortcutsTab/ShortcutsTab";
+import { ProfileStylesheet } from "../../Stylesheets/ProfileStylesheet";
 
 const Profile = (props: any) => {
   return (
-    <View
-      style={{
-        display: "flex",
-        flex: 2,
-      }}
-    >
-      <View
-        style={{
-          backgroundColor: main,
-          display: "flex",
-          padding: 40,
-          borderBottomLeftRadius: 20,
-          borderBottomRightRadius: 20,
-        }}
-      >
+    <View style={ProfileStylesheet.container}>
+      <View style={ProfileStylesheet.headerContainer}>
         <Icon name="user" type="feather" color={light} size={100} />
-        <Text style={typographyStylesheet.typographyNormalSmallerWhite}>
+        <Text style={typographyStylesheet.typographyNormalBoldWhite}>
           Nombre y apellido
         </Text>
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "flex-end",
-          }}
-        >
-          <View
-            style={{
-              display: "flex",
-              flex: 1,
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "flex-start",
-            }}
-          >
+        <View style={ProfileStylesheet.infoSectionRowContainer}>
+          <View style={ProfileStylesheet.infoSectionRowLeftContainer}>
             <Text style={typographyStylesheet.typographyCaptionBoldWhite}>
               CBU
               <Text style={typographyStylesheet.typographyCaptionWhite}>
@@ -55,27 +29,12 @@ const Profile = (props: any) => {
               </Text>
             </Text>
           </View>
-          <View
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "flex-end",
-            }}
-          >
+          <View style={ProfileStylesheet.infoSectionRowRightContainer}>
             <Icon name="content-copy" type="material-community" color={light} />
           </View>
         </View>
       </View>
-
-      <View
-        style={{
-          display: "flex",
-          flex: 1,
-          justifyContent: "center",
-          alignContent: "center",
-        }}
-      >
+      <View style={ProfileStylesheet.footerWrapper}>
         <ShortcutsTab />
         <ShortcutsTab />
       </View>
