@@ -1,12 +1,13 @@
 import { StyleSheet } from "react-native";
-import { main, dark, light } from "../ColorPallete";
+
+import { main, light } from "./ColorPallete";
 
 export const LoginStylesheet = StyleSheet.create({
   container: {
     display: "flex",
     flex: 1,
     justifyContent: "center",
-    backgroundColor: dark,
+    backgroundColor: main,
   },
   typographyNormal: {
     textAlign: "center",
@@ -34,11 +35,17 @@ export const LoginStylesheet = StyleSheet.create({
   logoContainer: {
     width: "100%",
     justifyContent: "center",
+    backgroundColor: main,
   },
   logo: {
     resizeMode: "contain",
     width: "85%",
     height: "35%",
     alignSelf: "center",
+  },
+  formWrapper: {
+    display: "flex",
+    flex: 2,
+    paddingTop: "20%",
   },
 });

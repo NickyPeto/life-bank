@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "react-native-elements";
-import { GeneralComponentsStylesheet } from "./Stylesheets/GneralComponentsStylesheets";
+import { GeneralComponentsStylesheet } from "../Stylesheets/GneralComponentsStylesheets";
 import { View } from "react-native";
 import { ButtonProps } from "../Models/SharedProps";
 

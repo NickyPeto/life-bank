@@ -1,5 +1,7 @@
 export interface CustomTabProps {
   active: boolean;
+  title: string;
+  secondTitle: string;
   handleClick: () => void;
 }
 

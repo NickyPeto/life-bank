@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import { View, SafeAreaView } from "react-native";
-import { CustomButton } from "../../Components/Button";
-import { LoginStylesheet } from "../../Components/Stylesheets/LoginStylesheet";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+
 import { RootStackParamList } from "../../Routes/AppNavigator";
 import { CustomTabProps } from "../../Models/SharedProps";
 import TabComponent from "../../Components/TabsComponent/TabComponent";
 import Form from "../../Components/FormSheetComponent/Form";
-import { LoginModel, RegisterModel } from "../../Models/FormModels";
+import { FormModel } from "../../Models/FormModels";
 import SvgLogo from "../../assets/svgs";
+import { CustomButton } from "../../Components/Button";
+import { LoginStylesheet } from "../../Stylesheets/LoginStylesheet";
 
 const Login = () => {
   const [login, setLogin] = useState<boolean>(true);
@@ -21,23 +22,30 @@ const Login = () => {
   type HomeStack = NativeStackNavigationProp<RootStackParamList, "Login">;
   const navigation = useNavigation<HomeStack>();
   function redirect() {
-    navigation.navigate("Home");
+    navigation.navigate("Tab");
   }
 
   //Mock data, this will be changed
   const tabdata: CustomTabProps = {
     active: login,
+    title: "Login",
+    secondTitle: "Register",
     handleClick: handleClick,
   };
-  const loginData: LoginModel = {
-    email: "E-mail",
-    password: "Password",
+  const loginData: FormModel = {
+    placeholders: {
+      email: "E-mail",
+      password: "Password",
+    },
+    extraData: true,
   };
-  const registerData: RegisterModel = {
-    name: "Name",
-    surname: "Surname",
-    email: "e-mail",
-    password: "Password",
+  const registerData: FormModel = {
+    placeholders: {
+      name: "Name",
+      surname: "Surname",
+      email: "E-mail",
+      password: "Password",
+    },
   };
 
   return (
@@ -52,18 +60,17 @@ const Login = () => {
                 </View>
               </View>
               <TabComponent {...tabdata} />
-              <Form {...loginData} />
+              <Form {...loginData}></Form>
             </>
           ) : (
             <>
-              <View style={{ display: "flex", flex: 2, paddingTop: "20%" }}>
+              <View style={LoginStylesheet.formWrapper}>
                 <TabComponent {...tabdata} />
                 <Form {...registerData} />
               </View>
             </>
           )}
         </>
-
         <CustomButton title={"Continue"} press={() => redirect()} />
       </View>
     </SafeAreaView>

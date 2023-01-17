@@ -10,6 +10,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#8B31FD"
     },
+    "scheme": "lifebank",
     "updates": {
       "fallbackToCacheTimeout": 0
     },
