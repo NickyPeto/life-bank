@@ -1,28 +1,13 @@
 import { View } from "react-native";
 import { Icon, Input } from "react-native-elements";
-import { lightGray, main } from "../../Stylesheets/ColorPallete";
+import { main } from "../../Stylesheets/ColorPallete";
+import { SearchbarStylesheet } from "../../Stylesheets/SearchbarConatainer";
 
 const SearchBar: React.FC<any> = (props) => {
-  //TODO: move style to stylesheets
   return (
-    <View
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "row",
-        marginTop: 20,
-        marginRight: 20,
-        marginLeft: 20,
-      }}
-    >
+    <View style={SearchbarStylesheet.container}>
       <Input
-        inputContainerStyle={{
-          backgroundColor: lightGray,
-          borderBottomWidth: 0,
-          borderRadius: 10,
-          opacity: 0.6,
-        }}
+        inputContainerStyle={SearchbarStylesheet.inputContainerStyle}
         inputStyle={{
           color: main,
         }}

@@ -1,6 +1,7 @@
 export const dark: string = "#000";
 export const light: string = "#fff";
 export const lightGray: string = "#cbcbcb";
+export const mainDark: string = "#51238D";
 export const main: string = "#8b31fd";
 export const mainLight: string = "#a661fc";
 export const mainLighter: string = "#bf91fb";
