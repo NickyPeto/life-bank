@@ -6,8 +6,9 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/images/LIFE.BANK.WHITE.png",
+      "image": "./assets/splash_low_white.png",
       "resizeMode": "contain",
+      "width": "100%",
       "backgroundColor": "#8B31FD"
     },
     "scheme": "lifebank",

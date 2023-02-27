@@ -5,7 +5,6 @@ export const GeneralComponentsStylesheet = StyleSheet.create({
   buttonContainer: {
     backgroundColor: light,
     display: "flex",
-    flex: 1,
   },
   buttonTitleStyle: {
     fontSize: 20,
@@ -16,7 +15,8 @@ export const GeneralComponentsStylesheet = StyleSheet.create({
     alignSelf: "center",
     color: light,
     width: "90%",
-    height: 50,
+    height: 56,
+    marginBottom: 20,
     borderRadius: 10,
   },
   darkTheme: {
@@ -32,7 +32,7 @@ export const GeneralComponentsStylesheet = StyleSheet.create({
   formContainer: {
     backgroundColor: light,
     display: "flex",
-    flex: 2,
+    flex: 1,
     paddingTop: 50,
     paddingBottom: 20,
     flexDirection: "column",
@@ -53,8 +53,8 @@ export const GeneralComponentsStylesheet = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-around",
-    paddingTop: 20,
-    paddingBottom: 20,
+    padding: 10,
+    // paddingBottom: 20,
   },
   shortcutTabIconWrapper: {
     display: "flex",
@@ -74,7 +74,7 @@ export const GeneralComponentsStylesheet = StyleSheet.create({
   },
   container: {
     display: "flex",
-    height: "100%",
+    flex: 1,
     justifyContent: "flex-start",
   },
 });

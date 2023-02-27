@@ -20,7 +20,9 @@ const ShortcutsTab = () => {
           type="material-community"
           size={40}
           color="#8b31fd"
-          onPress={() => navigation.navigate("Transactions")}
+          onPress={() =>
+            navigation.navigate("ShortcutsNav", { screen: "Transactions" })
+          }
         />
       </View>
       <View style={GeneralComponentsStylesheet.shortcutTabIconWrapper}>
@@ -29,7 +31,9 @@ const ShortcutsTab = () => {
           type="ionicon"
           size={40}
           color="#8b31fd"
-          onPress={() => navigation.navigate("Bills")}
+          onPress={() =>
+            navigation.navigate("ShortcutsNav", { screen: "Bills" })
+          }
         />
       </View>
       <View style={GeneralComponentsStylesheet.shortcutTabIconWrapper}>
@@ -38,7 +42,9 @@ const ShortcutsTab = () => {
           type="material-community"
           size={40}
           color="#8b31fd"
-          onPress={() => navigation.navigate("Investments")}
+          onPress={() =>
+            navigation.navigate("ShortcutsNav", { screen: "Investments" })
+          }
         />
       </View>
       <View style={GeneralComponentsStylesheet.shortcutTabIconWrapper}>
@@ -47,7 +53,7 @@ const ShortcutsTab = () => {
           type="ionicon"
           size={40}
           color="#8b31fd"
-          onPress={() => navigation.navigate("QR")}
+          onPress={() => navigation.navigate("ShortcutsNav", { screen: "QR" })}
         />
       </View>
     </View>

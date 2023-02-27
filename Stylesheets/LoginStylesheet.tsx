@@ -47,5 +47,6 @@ export const LoginStylesheet = StyleSheet.create({
     display: "flex",
     flex: 2,
     paddingTop: "20%",
+    overflow: "scroll",
   },
 });

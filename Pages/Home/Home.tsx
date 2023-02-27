@@ -24,7 +24,7 @@ const Home: React.FC<any> = () => {
     <SafeAreaView style={GeneralComponentsStylesheet.lightTheme}>
       <View style={homeStyleSheet.homeHeader}>
         <View style={homeStyleSheet.homeHeaderRowWithicon}>
-          <Text style={typographyStylesheet.typographyNormalBoldWhite}>
+          <Text style={typographyStylesheet.typographyHeadingBoldWhite}>
             Nombre y apellido
           </Text>
           <Icon name="bell" type="fontisto" color={light} />

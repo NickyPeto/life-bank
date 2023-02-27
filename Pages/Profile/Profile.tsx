@@ -5,14 +5,21 @@ import { light } from "../../Stylesheets/ColorPallete";
 import { typographyStylesheet } from "../../Stylesheets/Typography";
 import ShortcutsTab from "../../Components/ShortcutsTab/ShortcutsTab";
 import { ProfileStylesheet } from "../../Stylesheets/ProfileStylesheet";
+import { CustomLabels } from "../../assets/svgs";
 
 const Profile = (props: any) => {
   return (
     <View style={ProfileStylesheet.container}>
       <View style={ProfileStylesheet.headerContainer}>
         <Icon name="user" type="feather" color={light} size={100} />
-        <Text style={typographyStylesheet.typographyNormalBoldWhite}>
+        <Text
+          style={[
+            typographyStylesheet.typographyNormalBoldWhite,
+            { paddingTop: 10 },
+          ]}
+        >
           Nombre y apellido
+          <CustomLabels height={"100%"} width={"100%"} fill={"#fff"} />
         </Text>
         <View style={ProfileStylesheet.infoSectionRowContainer}>
           <View style={ProfileStylesheet.infoSectionRowLeftContainer}>
@@ -35,7 +42,6 @@ const Profile = (props: any) => {
         </View>
       </View>
       <View style={ProfileStylesheet.footerWrapper}>
-        <ShortcutsTab />
         <ShortcutsTab />
       </View>
     </View>

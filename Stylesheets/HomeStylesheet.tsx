@@ -6,11 +6,13 @@ export const homeStyleSheet = StyleSheet.create({
     display: "flex",
     flex: 1,
     backgroundColor: main,
-    justifyContent: "space-evenly",
+    justifyContent: "space-between",
     alignItems: "flex-start",
     flexDirection: "column",
+    paddingRight: 20,
     paddingLeft: 20,
-    paddingTop: 20,
+    paddingBottom: 28,
+    paddingTop: 48,
   },
   homeTabContainer: {
     display: "flex",
@@ -26,8 +28,6 @@ export const homeStyleSheet = StyleSheet.create({
     width: "100%",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingRight: 40,
-    paddingTop: 40,
   },
   homeSimpleColumn: {
     display: "flex",
@@ -38,7 +38,6 @@ export const homeStyleSheet = StyleSheet.create({
     flexDirection: "row",
     width: "100%",
     justifyContent: "space-between",
-    alignItems: "flex-end",
-    paddingRight: 40,
+    alignItems: "flex-start",
   },
 });

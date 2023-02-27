@@ -8,9 +8,10 @@ import { CustomTabProps } from "../../Models/SharedProps";
 import TabComponent from "../../Components/TabsComponent/TabComponent";
 import Form from "../../Components/FormSheetComponent/Form";
 import { FormModel } from "../../Models/FormModels";
-import SvgLogo from "../../assets/svgs";
+import { Circles, SvgLogo } from "../../assets/svgs";
 import { CustomButton } from "../../Components/Button";
 import { LoginStylesheet } from "../../Stylesheets/LoginStylesheet";
+import { light } from "../../Stylesheets/ColorPallete";
 
 const Login = () => {
   const [login, setLogin] = useState<boolean>(true);
@@ -44,19 +45,34 @@ const Login = () => {
       name: "Name",
       surname: "Surname",
       email: "E-mail",
+      phoneNumber: "Phone Number",
       password: "Password",
+      confirmPassword: "Confirm password",
     },
   };
 
   return (
     <SafeAreaView style={LoginStylesheet.container}>
-      <View style={LoginStylesheet.mainContainer}>
+      <View
+        style={{
+          display: "flex",
+          flex: 1,
+          flexDirection: "column",
+          justifyContent: "flex-end",
+        }}
+      >
         <>
           {login ? (
             <>
               <View style={LoginStylesheet.logoContainer}>
                 <View style={LoginStylesheet.logo}>
                   <SvgLogo height={"100%"} width={"100%"} fill={"#fff"} />
+                  <Circles
+                    height={"100%"}
+                    width={"100%"}
+                    stroke={light}
+                    fill={light}
+                  />
                 </View>
               </View>
               <TabComponent {...tabdata} />

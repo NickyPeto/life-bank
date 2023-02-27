@@ -8,6 +8,8 @@ import Profile from "../Pages/Profile/Profile";
 import { dark, light, main, mainLight } from "../Stylesheets/ColorPallete";
 import { Icon } from "react-native-elements";
 import { View } from "react-native";
+import ShortcutsNavigator from "./ShortcutsNavigator";
+import HomeNavigator from "./HomeNavigator";
 
 export const ScreenOptions: BottomTabNavigationOptions = {
   headerShown: true,
@@ -32,11 +34,10 @@ export default function BottomTab() {
   return (
     <Tab.Navigator initialRouteName="Tab" screenOptions={ScreenOptions}>
       <Tab.Screen
-        name="Home"
-        component={Home}
+        name="HomeNavigator"
+        component={HomeNavigator}
         options={{
-          header: () => null,
-          headerPressColor: light,
+          headerShown: false,
           tabBarIcon: ({ focused }) => {
             return (
               <>

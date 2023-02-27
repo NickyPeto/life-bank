@@ -6,12 +6,12 @@ import { main } from "../../Stylesheets/ColorPallete";
 import CustomInputs from "../CustomInputs/CustomInputs";
 
 const Form: React.FC<FormModel> = ({ placeholders, extraData }) => {
-  //FIXME: buscar un nombre mejor.
-  const array = Object.keys(placeholders);
+  const inputPlaceholders = Object.values(placeholders);
 
   return (
     <View style={GeneralComponentsStylesheet.formContainer}>
-      {array.map((values) => {
+      {inputPlaceholders.map((values, index) => {
+        console.log(typeof values);
         return (
           <View key={values}>
             <CustomInputs

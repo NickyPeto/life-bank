@@ -19,21 +19,26 @@ export const ProfileStylesheet = StyleSheet.create({
   infoSectionRowContainer: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "center",
     alignItems: "flex-end",
+    paddingTop: 10,
+    paddingBottom: 10,
   },
   infoSectionRowLeftContainer: {
     display: "flex",
-    flex: 1,
     flexDirection: "column",
     justifyContent: "flex-start",
     alignItems: "flex-start",
+    paddingTop: 10,
+    paddingBottom: 10,
   },
   infoSectionRowRightContainer: {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "flex-end",
+    paddingTop: 10,
+    paddingBottom: 10,
   },
   footerWrapper: {
     display: "flex",

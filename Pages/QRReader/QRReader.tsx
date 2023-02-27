@@ -49,7 +49,6 @@ const QrReader: React.FC<any> = () => {
         style={{
           display: "flex",
           justifyContent: "center",
-          padding: 40,
           alignContent: "center",
         }}
       >
@@ -57,7 +56,6 @@ const QrReader: React.FC<any> = () => {
           style={{
             display: "flex",
             justifyContent: "center",
-            // padding: 10,
             borderRadius: 10,
             borderWidth: 18,
             borderColor: mainDark,
@@ -66,7 +64,7 @@ const QrReader: React.FC<any> = () => {
           }}
         >
           <BarCodeScanner
-            style={{ height: 300, width: 300 }}
+            style={{ height: 300, width: "auto" }}
             onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
           />
         </View>

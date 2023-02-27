@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 import { light, main } from "./ColorPallete";
 
 export const typographyStylesheet = StyleSheet.create({
-  typographyNormal: {
+  typographyCaption: {
     textAlign: "center",
     fontFamily: "System",
     color: main,

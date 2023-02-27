@@ -5,14 +5,14 @@ import { rootNavigationRef } from "./RootNavigationRef";
 
 import Login from "../Pages/Login/Login";
 import BottomTab from "./BottomTab";
-import Bills from "../Pages/Bills/Bills";
-import Investments from "../Pages/Investments/Investments";
-import QrReader from "../Pages/QRReader/QRReader";
-import { light, main } from "../Stylesheets/ColorPallete";
+import ShortcutsNavigator from "./ShortcutsNavigator";
 
 export type RootStackParamList = {
   Login: undefined;
   Tab: undefined;
+  HomeNavigator: undefined;
+  Home: undefined;
+  ShortcutsNav: undefined;
   Bills: undefined;
   Investments: undefined;
   QR: undefined;
@@ -32,26 +32,6 @@ export default function AppNavigator() {
       >
         <Screen name="Login" component={Login} />
         <Screen name="Tab" component={BottomTab} />
-        <Screen
-          options={{ headerShown: true }}
-          name="Bills"
-          component={Bills}
-        />
-        <Screen
-          options={{ headerShown: true }}
-          name="Investments"
-          component={Investments}
-        />
-        <Screen
-          options={{
-            headerShown: true,
-            headerTintColor: light,
-            headerTitleAlign: "center",
-            headerStyle: { backgroundColor: main },
-          }}
-          name="QR"
-          component={QrReader}
-        />
       </Navigator>
     </NavigationContainer>
   );
