@@ -32,7 +32,7 @@ const dataFirstHalf: ChartProps = {
   ],
 };
 
-const dataSecondHalf: ChartProps = {
+const dataSecondHalf = {
   labels: ["jul", "aug", "sep", "oct", "nov", "dec"],
   data: [
     { x: 0, y: 10 },
