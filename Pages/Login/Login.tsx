@@ -63,19 +63,11 @@ const Login = () => {
         <>
           {login ? (
             <>
-              <ImageBackground
-                resizeMode="cover"
-                source={require("./assets/bitmap-life-bank.png")}
-                style={{
-                  flex: 1,
-                }}
-              >
-                <View style={LoginStylesheet.logoContainer}>
-                  <View style={LoginStylesheet.logo}>
-                    <SvgLogo height={"100%"} width={"100%"} fill={"#fff"} />
-                  </View>
+              <View style={LoginStylesheet.logoContainer}>
+                <View style={LoginStylesheet.logo}>
+                  <SvgLogo height={"100%"} width={"100%"} fill={"#fff"} />
                 </View>
-              </ImageBackground>
+              </View>
               <TabComponent {...tabdata} />
               <Form {...loginData}></Form>
             </>
