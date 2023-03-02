@@ -1,63 +1,25 @@
-import { View } from "react-native";
+import { View, Text } from "react-native";
 import { Icon } from "react-native-elements";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { useNavigation } from "@react-navigation/native";
 
 import { GeneralComponentsStylesheet } from "../../Stylesheets/GneralComponentsStylesheets";
+import { ShortcutIconsProps } from "../../Models/SharedProps";
+import { typographyStylesheet } from "../../Stylesheets/Typography";
 
-//FIXME: fix typing
-const ShortcutsTab = () => {
-  type ShortcutStack = NativeStackNavigationProp<any, "Shortcuts">;
-  const navigation = useNavigation<ShortcutStack>();
-
-  navigation.getParent();
-
-  return (
-    <View style={GeneralComponentsStylesheet.shortcutTabContainer}>
-      <View style={GeneralComponentsStylesheet.shortcutTabIconWrapper}>
-        <Icon
-          name="shopping-outline"
-          type="material-community"
-          size={40}
-          color="#8b31fd"
-          onPress={() =>
-            navigation.navigate("ShortcutsNav", { screen: "Transactions" })
-          }
-        />
-      </View>
-      <View style={GeneralComponentsStylesheet.shortcutTabIconWrapper}>
-        <Icon
-          name="receipt-outline"
-          type="ionicon"
-          size={40}
-          color="#8b31fd"
-          onPress={() =>
-            navigation.navigate("ShortcutsNav", { screen: "Bills" })
-          }
-        />
-      </View>
-      <View style={GeneralComponentsStylesheet.shortcutTabIconWrapper}>
-        <Icon
-          name="chart-line-variant"
-          type="material-community"
-          size={40}
-          color="#8b31fd"
-          onPress={() =>
-            navigation.navigate("ShortcutsNav", { screen: "Investments" })
-          }
-        />
-      </View>
-      <View style={GeneralComponentsStylesheet.shortcutTabIconWrapper}>
-        <Icon
-          name="qr-code-outline"
-          type="ionicon"
-          size={40}
-          color="#8b31fd"
-          onPress={() => navigation.navigate("ShortcutsNav", { screen: "QR" })}
-        />
-      </View>
-    </View>
-  );
-};
+const ShortcutsTab: React.FC<ShortcutIconsProps> = (
+  props: ShortcutIconsProps
+) => (
+  <View style={GeneralComponentsStylesheet.shortcutTabIconWrapper}>
+    <Icon
+      name={props.name}
+      type={props.type}
+      size={40}
+      color="#8b31fd"
+      onPress={() => props.onPress()}
+    />
+    {props.title ? (
+      <Text style={typographyStylesheet.shortcutTitle}>{props?.title}</Text>
+    ) : null}
+  </View>
+);
 
 export default ShortcutsTab;

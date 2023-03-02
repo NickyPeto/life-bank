@@ -8,7 +8,11 @@ const Investments: React.FC<any> = () => {
     <>
       <ScrollView
         keyboardShouldPersistTaps={"always"}
-        style={{ display: "flex", flex: 2 }}
+        style={{ display: "flex" }}
+        contentContainerStyle={{
+          justifyContent: "center",
+          flex: 1,
+        }}
       >
         <ChartComponent />
         <InvestmentsBottomTab />

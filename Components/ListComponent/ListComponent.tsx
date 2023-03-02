@@ -121,7 +121,10 @@ const ListComponent: React.FC<any> = (props) => {
       </View>
       <FlatList
         data={data}
-        contentContainerStyle={{ backgroundColor: "transparent" }}
+        style={{ flex: 1 }}
+        contentContainerStyle={{
+          backgroundColor: "transparent",
+        }}
         keyExtractor={(item) => item.id.toString()}
         renderItem={(item) => <ListItem {...item} />}
       />

@@ -113,7 +113,12 @@ export default function BottomTab() {
                     ></View>
                   </>
                 ) : (
-                  <Icon name="user" type="feather" color={light} />
+                  <Icon
+                    name="user-o"
+                    solid={true}
+                    type="font-awesome"
+                    color={light}
+                  />
                 )}
               </>
             );

@@ -1,6 +1,8 @@
 import { StyleSheet } from "react-native";
 import { dark, main, light, mainUltraLight } from "./ColorPallete";
 
+//FIXME: separar estilos por componente
+
 export const GeneralComponentsStylesheet = StyleSheet.create({
   buttonContainer: {
     backgroundColor: light,
@@ -19,6 +21,15 @@ export const GeneralComponentsStylesheet = StyleSheet.create({
     marginBottom: 20,
     borderRadius: 10,
   },
+  buttonMainSmall: {
+    backgroundColor: main,
+    justifyContent: "center",
+    alignSelf: "center",
+    color: light,
+    width: "90%",
+    height: 40,
+    borderRadius: 10,
+  },
   darkTheme: {
     backgroundColor: dark,
     flex: 1,
@@ -33,33 +44,36 @@ export const GeneralComponentsStylesheet = StyleSheet.create({
     backgroundColor: light,
     display: "flex",
     flex: 1,
-    paddingTop: 50,
-    paddingBottom: 20,
     flexDirection: "column",
     justifyContent: "center",
   },
-  inputStyle: {
+  inputContainer: {
     color: main,
     padding: 20,
     fontWeight: "500",
   },
-  inputContainerStyle: {
+  inputStyle: {
     borderRadius: 20,
     height: 70,
+    padding: 20,
+    fontWeight: "700",
+    color: main,
     borderColor: "transparent",
+    underlineColorAndroid: "transparent",
+    fontSize: 16,
     backgroundColor: mainUltraLight,
+    opacity: 0.7,
   },
   shortcutTabContainer: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-around",
     padding: 10,
-    // paddingBottom: 20,
   },
   shortcutTabIconWrapper: {
     display: "flex",
-    height: 70,
-    width: 70,
+    height: 80,
+    width: 80,
     backgroundColor: light,
     //For android users
     elevation: 10,
@@ -70,7 +84,8 @@ export const GeneralComponentsStylesheet = StyleSheet.create({
     shadowOpacity: 0.4,
     shadowRadius: 3,
     borderRadius: 20,
-    justifyContent: "center",
+    justifyContent: "flex-end",
+    paddingBottom: 8,
   },
   container: {
     display: "flex",

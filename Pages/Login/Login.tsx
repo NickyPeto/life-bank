@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, SafeAreaView } from "react-native";
+import { View, SafeAreaView, ImageBackground } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
@@ -11,7 +11,6 @@ import { FormModel } from "../../Models/FormModels";
 import { Circles, SvgLogo } from "../../assets/svgs";
 import { CustomButton } from "../../Components/Button";
 import { LoginStylesheet } from "../../Stylesheets/LoginStylesheet";
-import { light } from "../../Stylesheets/ColorPallete";
 
 const Login = () => {
   const [login, setLogin] = useState<boolean>(true);
@@ -64,17 +63,19 @@ const Login = () => {
         <>
           {login ? (
             <>
-              <View style={LoginStylesheet.logoContainer}>
-                <View style={LoginStylesheet.logo}>
-                  <SvgLogo height={"100%"} width={"100%"} fill={"#fff"} />
-                  <Circles
-                    height={"100%"}
-                    width={"100%"}
-                    stroke={light}
-                    fill={light}
-                  />
+              <ImageBackground
+                resizeMode="cover"
+                source={require("./assets/bitmap-life-bank.png")}
+                style={{
+                  flex: 1,
+                }}
+              >
+                <View style={LoginStylesheet.logoContainer}>
+                  <View style={LoginStylesheet.logo}>
+                    <SvgLogo height={"100%"} width={"100%"} fill={"#fff"} />
+                  </View>
                 </View>
-              </View>
+              </ImageBackground>
               <TabComponent {...tabdata} />
               <Form {...loginData}></Form>
             </>

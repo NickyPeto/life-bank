@@ -8,12 +8,14 @@ const ListItem: React.FC<any> = ({ item }) => {
     <Pressable style={ListComponentStylesheet.listItemContainer}>
       <View style={ListComponentStylesheet.listItemHeader}>
         <Text style={ListComponentStylesheet.textBold}>{item.title}</Text>
-        <Text>{item.description}</Text>
+        <Text style={ListComponentStylesheet.textCaption}>
+          {item.description}
+        </Text>
       </View>
 
       <View style={ListComponentStylesheet.listItemHeader}>
         <Text style={ListComponentStylesheet.textBold}>{item.amount}</Text>
-        <Text>{item.date}</Text>
+        <Text style={ListComponentStylesheet.textCaption}>{item.date}</Text>
       </View>
     </Pressable>
   );

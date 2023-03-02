@@ -14,3 +14,10 @@ export interface ChartDataProps {
   x: number;
   y: number;
 }
+
+export interface ShortcutIconsProps {
+  name: string;
+  type: string;
+  title?: string;
+  onPress: () => void;
+}

@@ -16,6 +16,7 @@ export type RootStackParamList = {
   Bills: undefined;
   Investments: undefined;
   QR: undefined;
+  Transactions: undefined;
 };
 
 const { Screen, Navigator } = createNativeStackNavigator<RootStackParamList>();

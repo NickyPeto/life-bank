@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { light, mainUltraLight } from "./ColorPallete";
+import { light, mainLight, mainLighter, mainUltraLight } from "./ColorPallete";
 
 export const ListComponentStylesheet = StyleSheet.create({
   listItem: {
@@ -30,15 +30,21 @@ export const ListComponentStylesheet = StyleSheet.create({
     paddingLeft: 20,
     paddingRight: 20,
     justifyContent: "flex-start",
+    fontFamily: "SFUIDisplay-Bold",
   },
   textBold: {
-    fontWeight: "bold",
     textAlign: "left",
+    fontFamily: "SFUIDisplay-Bold",
+  },
+  textCaption: {
+    textAlign: "left",
+    fontFamily: "SFUIDisplay-Light",
   },
   listComponent: {
     display: "flex",
     flexGrow: 2,
-    padding: 10,
+    paddingRight: 10,
+    paddingLeft: 10,
     marginRight: 10,
     marginLeft: 10,
     elevation: 10,
@@ -47,6 +53,6 @@ export const ListComponentStylesheet = StyleSheet.create({
     borderTopLeftRadius: 20,
   },
   listComponentWrapper: {
-    marginBottom: 10,
+    paddingBottom: 10,
   },
 });

@@ -6,12 +6,11 @@ export const homeStyleSheet = StyleSheet.create({
     display: "flex",
     flex: 1,
     backgroundColor: main,
-    justifyContent: "space-between",
+    justifyContent: "space-evenly",
     alignItems: "flex-start",
     flexDirection: "column",
     paddingRight: 20,
     paddingLeft: 20,
-    paddingBottom: 28,
     paddingTop: 48,
   },
   homeTabContainer: {

@@ -11,11 +11,13 @@ import { ListComponentStylesheet } from "../../Stylesheets/ListComponentStyleshe
 import { GeneralComponentsStylesheet } from "../../Stylesheets/GneralComponentsStylesheets";
 
 const InvestmentsBottomTab: React.FC<any> = () => {
+  //FIXME: move all to stylesheet
   return (
     <View
       style={{
         display: "flex",
         alignContent: "flex-end",
+        justifyContent: "space-evenly",
         elevation: 10,
         flex: 1,
         borderTopLeftRadius: 40,
@@ -58,10 +60,15 @@ const InvestmentsBottomTab: React.FC<any> = () => {
         style={{
           display: "flex",
           alignItems: "center",
+          marginLeft: 20,
+          marginRight: 20,
         }}
       >
         <Slider
-          style={{ width: "100%", height: 40 }}
+          style={{
+            width: "100%",
+            height: 40,
+          }}
           minimumValue={0}
           maximumValue={1}
           minimumTrackTintColor={mainLighter}
@@ -104,7 +111,7 @@ const InvestmentsBottomTab: React.FC<any> = () => {
         </Pressable>
         <Pressable
           style={[
-            GeneralComponentsStylesheet.buttonMain,
+            GeneralComponentsStylesheet.buttonMainSmall,
             { width: "40%", marginLeft: 10 },
           ]}
         >
