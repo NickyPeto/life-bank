@@ -83,27 +83,23 @@ const Login = () => {
       >
         <>
           {login ? (
-            <>
-              <View
-                style={[
-                  LoginStylesheet.logoContainer,
-                  { backgroundColor: palette.main },
-                ]}
-              >
-                <View style={LoginStylesheet.logo}>
-                  <SvgLogo height={"100%"} width={"100%"} fill={"#fff"} />
-                </View>
+            <View
+              style={[
+                LoginStylesheet.logoContainer,
+                { backgroundColor: palette.main },
+              ]}
+            >
+              <View style={LoginStylesheet.logo}>
+                <SvgLogo height={"100%"} width={"100%"} fill={"#fff"} />
               </View>
               <TabComponent {...tabdata} />
               <Form {...loginData}></Form>
-            </>
+            </View>
           ) : (
-            <>
-              <View style={LoginStylesheet.formWrapper}>
-                <TabComponent {...tabdata} />
-                <Form {...registerData} />
-              </View>
-            </>
+            <View style={LoginStylesheet.formWrapper}>
+              <TabComponent {...tabdata} />
+              <Form {...registerData} />
+            </View>
           )}
         </>
         <CustomButton

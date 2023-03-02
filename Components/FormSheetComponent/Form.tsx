@@ -9,6 +9,8 @@ const Form: React.FC<FormModel> = ({ placeholders, extraData }) => {
   const { palette } = useTheme();
   //TODO: Move styles to stylesheeyt
 
+  //TODO: Move styles to stylesheeyt
+
   return (
     <ScrollView
       style={{
