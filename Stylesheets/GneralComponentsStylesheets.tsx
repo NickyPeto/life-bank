@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
 
+//FIXME: separar estilos por componente
+
 export const GeneralComponentsStylesheet = StyleSheet.create({
   buttonContainer: {
     display: "flex",
