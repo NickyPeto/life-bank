@@ -5,7 +5,6 @@ import { useTheme } from "../../Theme/Index";
 
 const SearchBar: React.FC<any> = (props) => {
   const { palette } = useTheme();
-
   return (
     <View style={SearchbarStylesheet.container}>
       <Input
