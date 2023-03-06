@@ -9,13 +9,11 @@ import { GeneralComponentsStylesheet } from "../../Stylesheets/GneralComponentsS
 import ShortcutsTab from "../../Components/ShortcutsTab/ShortcutsTab";
 import { typographyStylesheet } from "../../Stylesheets/Typography";
 import { homeStyleSheet } from "../../Stylesheets/HomeStylesheet";
-
 import ListComponent, {
   data,
 } from "../../Components/ListComponent/ListComponent";
 import { ShortcutIconsProps } from "../../Models/SharedProps";
 import { Circles } from "../../assets/svgs";
-
 import ClipboardCopier from "../../Components/ClipboardCopier/ClipboardCopier";
 import { useTheme } from "../../Theme/Index";
 

@@ -1,7 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Home from "../Pages/Home/Home";
-
 import { RootStackParamList } from "./AppNavigator";
 import ShortcutsNavigator from "./ShortcutsNavigator";
 import { useTheme } from "../Theme/Index";
