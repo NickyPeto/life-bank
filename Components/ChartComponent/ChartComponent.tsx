@@ -6,6 +6,7 @@ import {
   Background,
   VictoryAxis,
   VictoryChart,
+  VictoryContainer,
   VictoryGroup,
   VictoryLabel,
   VictoryLine,
@@ -70,6 +71,7 @@ const ChartComponent: React.FC<any> = (props) => {
           flexDirection: "row",
           display: "flex",
           paddingTop: 10,
+          backgroundColor: palette.mainTint,
         }}
       >
         <Text
@@ -82,7 +84,7 @@ const ChartComponent: React.FC<any> = (props) => {
         </Text>
         <Pressable
           style={{
-            backgroundColor: palette.light,
+            backgroundColor: palette.mainTint,
             borderColor: palette.main,
             marginRight: 20,
             borderWidth: 1,
@@ -111,103 +113,105 @@ const ChartComponent: React.FC<any> = (props) => {
           )}
         </Pressable>
       </View>
-      <VictoryChart
-        domain={{ x: [1, 6], y: [1, 6] }}
-        backgroundComponent={<Background rx={10} ry={10} />}
-        style={{
-          background: {
-            fill: palette.mainLighter,
-            fillOpacity: 0.2,
-          },
-        }}
-        theme={{
-          axis: {
-            style: {
-              axis: {
-                stroke: "none",
-              },
-              grid: {
-                fill: "none",
-                stroke: palette.mainLighter,
-                strokeOpacity: 0.5,
-              },
+      <View style={{ backgroundColor: palette.mainTint }}>
+        <VictoryChart
+          domain={{ x: [1, 6], y: [1, 6] }}
+          backgroundComponent={<Background rx={10} ry={10} />}
+          style={{
+            background: {
+              fill: palette.mainLighter,
+              fillOpacity: 0.2,
             },
-          },
-        }}
-      >
-        <VictoryGroup
-          data={data.data}
-          color={palette.main}
-          categories={{
-            x: data.labels,
           }}
-          animate={{
-            easing: "poly",
-            duration: 2000,
-            onEnter: {
-              duration: 2000,
-              before: () => ({ opacity: 0 }),
-              after: () => ({ opacity: 1 }),
-            },
-            onLoad: {
-              duration: 2000,
-              before: () => ({ opacity: 0 }),
-              after: () => ({ opacity: 1 }),
-            },
-            onExit: {
-              duration: 2000,
-              before: () => ({ opacity: 1 }),
+          theme={{
+            axis: {
+              style: {
+                axis: {
+                  stroke: "none",
+                },
+                grid: {
+                  fill: "none",
+                  stroke: palette.mainLighter,
+                  strokeOpacity: 0.5,
+                },
+              },
             },
           }}
         >
-          <VictoryScatter
-            size={4}
-            symbol="circle"
+          <VictoryGroup
             data={data.data}
-            minDomain={{ y: 0 }}
-          />
-          <VictoryLine data={data.data} minDomain={{ y: 0 }} />
-        </VictoryGroup>
-        <VictoryAxis
-          orientation="left"
-          dependentAxis
-          tickCount={4}
-          tickLabelComponent={
-            <VictoryLabel
-              textAnchor="end"
-              verticalAnchor="end"
-              style={{
-                fill: palette.mainLight,
-                fontSize: 14,
-              }}
+            color={palette.main}
+            categories={{
+              x: data.labels,
+            }}
+            animate={{
+              easing: "poly",
+              duration: 2000,
+              onEnter: {
+                duration: 2000,
+                before: () => ({ opacity: 0 }),
+                after: () => ({ opacity: 1 }),
+              },
+              onLoad: {
+                duration: 2000,
+                before: () => ({ opacity: 0 }),
+                after: () => ({ opacity: 1 }),
+              },
+              onExit: {
+                duration: 2000,
+                before: () => ({ opacity: 1 }),
+              },
+            }}
+          >
+            <VictoryScatter
+              size={4}
+              symbol="circle"
+              data={data.data}
+              minDomain={{ y: 0 }}
             />
-          }
-        ></VictoryAxis>
-        <VictoryAxis
-          orientation="bottom"
-          categories={{ x: data.labels }}
-          tickLabelComponent={
-            <VictoryLabel
-              textAnchor="middle"
-              verticalAnchor="middle"
-              style={{
-                fill: palette.mainLight,
-                fontSize: 14,
-                fontWeight: "bold",
-              }}
-              backgroundPadding={{ top: 6 }}
-              dy={8}
-              dx={6}
-            />
-          }
-          style={{
-            grid: {
-              fill: "none",
-              stroke: "none",
-            },
-          }}
-        ></VictoryAxis>
-      </VictoryChart>
+            <VictoryLine data={data.data} minDomain={{ y: 0 }} />
+          </VictoryGroup>
+          <VictoryAxis
+            orientation="left"
+            dependentAxis
+            tickCount={4}
+            tickLabelComponent={
+              <VictoryLabel
+                textAnchor="end"
+                verticalAnchor="end"
+                style={{
+                  fill: palette.mainLight,
+                  fontSize: 14,
+                }}
+              />
+            }
+          ></VictoryAxis>
+          <VictoryAxis
+            orientation="bottom"
+            categories={{ x: data.labels }}
+            tickLabelComponent={
+              <VictoryLabel
+                textAnchor="middle"
+                verticalAnchor="middle"
+                style={{
+                  fill: palette.mainLight,
+                  fontSize: 14,
+                  fontWeight: "bold",
+                }}
+                backgroundPadding={{ top: 6 }}
+                dy={8}
+                dx={6}
+              />
+            }
+            style={{
+              grid: {
+                fill: "none",
+                stroke: "none",
+              },
+            }}
+          ></VictoryAxis>
+        </VictoryChart>
+      </View>
     </>
   );
 };

@@ -16,19 +16,19 @@ export default function BottomTab() {
   const ScreenOptions: BottomTabNavigationOptions = {
     headerShown: true,
     tabBarShowLabel: false,
-    headerTintColor: palette.light,
+    headerTintColor: palette.white,
     headerTitleAlign: "center",
     headerShadowVisible: false,
     headerStyle: {
-      backgroundColor: palette.main,
-      shadowColor: palette.dark,
+      backgroundColor: palette.bottomTab,
+      shadowColor: palette.contrast,
     },
     tabBarStyle: {
       height: 60,
     },
-    tabBarActiveBackgroundColor: palette.main,
+    tabBarActiveBackgroundColor: palette.bottomTab,
     tabBarActiveTintColor: palette.mainLight,
-    tabBarInactiveBackgroundColor: palette.main,
+    tabBarInactiveBackgroundColor: palette.bottomTab,
   };
 
   const Tab = createBottomTabNavigator();
@@ -47,20 +47,21 @@ export default function BottomTab() {
                     <Icon
                       name="home-filled"
                       type="material-icon"
-                      color={palette.light}
+                      size={32}
+                      color={palette.focusedTab}
                     />
                     <View
                       style={{
                         height: 5,
                         width: 5,
                         margin: 5,
-                        backgroundColor: palette.light,
+                        backgroundColor: palette.focusedTab,
                         borderRadius: 20,
                       }}
                     ></View>
                   </>
                 ) : (
-                  <Icon name="home" type="octicon" color={palette.light} />
+                  <Icon name="home" type="octicon" color={palette.white} />
                 )}
               </>
             );
@@ -71,26 +72,35 @@ export default function BottomTab() {
         name="Transactions"
         component={Transactions}
         options={{
-          headerPressColor: palette.light,
+          headerPressColor: palette.white,
           tabBarIcon: ({ focused }) => {
             return (
               <>
-                <Icon
-                  name="arrow-switch"
-                  type="octicon"
-                  color={palette.light}
-                />
                 {focused ? (
-                  <View
-                    style={{
-                      height: 5,
-                      width: 5,
-                      margin: 5,
-                      backgroundColor: palette.light,
-                      borderRadius: 20,
-                    }}
-                  ></View>
-                ) : null}
+                  <>
+                    <Icon
+                      name="arrow-switch"
+                      type="octicon"
+                      size={32}
+                      color={palette.focusedTab}
+                    />
+                    <View
+                      style={{
+                        height: 5,
+                        width: 5,
+                        margin: 5,
+                        backgroundColor: palette.focusedTab,
+                        borderRadius: 20,
+                      }}
+                    ></View>
+                  </>
+                ) : (
+                  <Icon
+                    name="arrow-switch"
+                    type="octicon"
+                    color={palette.white}
+                  />
+                )}
               </>
             );
           },
@@ -100,7 +110,9 @@ export default function BottomTab() {
         name="Profile"
         component={Profile}
         options={{
-          headerPressColor: palette.light,
+          headerStyle: {
+            backgroundColor: palette.main,
+          },
           tabBarIcon: ({ focused }) => {
             return (
               <>
@@ -109,14 +121,15 @@ export default function BottomTab() {
                     <Icon
                       name="user-alt"
                       type="font-awesome-5"
-                      color={palette.light}
+                      size={32}
+                      color={palette.focusedTab}
                     />
                     <View
                       style={{
                         height: 5,
                         width: 5,
                         margin: 5,
-                        backgroundColor: palette.light,
+                        backgroundColor: palette.focusedTab,
                         borderRadius: 20,
                       }}
                     ></View>
@@ -126,7 +139,7 @@ export default function BottomTab() {
                     name="user-o"
                     solid={true}
                     type="font-awesome"
-                    color={palette.light}
+                    color={palette.white}
                   />
                 )}
               </>

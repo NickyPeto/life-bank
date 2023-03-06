@@ -36,7 +36,7 @@ export const TabComponent: React.FC<CustomTabProps> = (props) => {
         ></View>
         <View
           style={{
-            backgroundColor: palette.light,
+            backgroundColor: palette.mainTint,
             height: 20,
             width: 100,
           }}
@@ -44,13 +44,13 @@ export const TabComponent: React.FC<CustomTabProps> = (props) => {
       </View>
       <View style={{ flex: 1 }}>
         <Button
-          titleStyle={{ color: props.active ? palette.main : palette.light }}
+          titleStyle={{ color: props.active ? palette.main : palette.mainTint }}
           title={props.title}
           buttonStyle={
             props.active
               ? [
                   tabComponentStylesheet.tabButtonLeft,
-                  { backgroundColor: palette.light },
+                  { backgroundColor: palette.mainTint },
                 ]
               : [
                   tabComponentStylesheet.inactiveTabButtonLeft,
@@ -63,13 +63,15 @@ export const TabComponent: React.FC<CustomTabProps> = (props) => {
 
       <View style={{ flex: 1 }}>
         <Button
-          titleStyle={{ color: !props.active ? palette.main : palette.light }}
+          titleStyle={{
+            color: !props.active ? palette.main : palette.mainTint,
+          }}
           title={props.secondTitle}
           buttonStyle={
             !props.active
               ? [
                   tabComponentStylesheet.tabButtonRight,
-                  { backgroundColor: palette.light },
+                  { backgroundColor: palette.mainTint },
                 ]
               : [
                   tabComponentStylesheet.inactiveTabButtonRight,

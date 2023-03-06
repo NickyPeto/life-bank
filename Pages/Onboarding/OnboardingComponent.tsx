@@ -24,14 +24,14 @@ const Onboarding: React.FC<any> = (props) => {
       <View
         style={[
           OnboardingStylesheet.footerContainer,
-          { backgroundColor: palette.light },
+          { backgroundColor: palette.mainTint },
         ]}
       >
         <Text style={OnboardingStylesheet.header}>Hola!</Text>
         <Text
           style={[
             OnboardingStylesheet.content,
-            { backgroundColor: palette.dark },
+            { backgroundColor: palette.contrast },
           ]}
         >
           Ahora Life Bank te permite gestionar tus cuentas bancarias y controlar
@@ -40,7 +40,7 @@ const Onboarding: React.FC<any> = (props) => {
         <Text
           style={[
             OnboardingStylesheet.content,
-            { backgroundColor: palette.dark },
+            { backgroundColor: palette.contrast },
           ]}
         >
           Podras invertir, crear redes de contactos, pagar tus servicios y mas.
@@ -48,7 +48,7 @@ const Onboarding: React.FC<any> = (props) => {
         <Text
           style={[
             OnboardingStylesheet.content,
-            { backgroundColor: palette.dark },
+            { backgroundColor: palette.contrast },
           ]}
         >
           Lo mas importante es que no hay limites, puedes hacerlo desde y hacia

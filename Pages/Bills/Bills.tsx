@@ -70,7 +70,12 @@ const Bills: React.FC<any> = () => {
   }, []);
 
   return (
-    <View style={GeneralComponentsStylesheet.container}>
+    <View
+      style={[
+        GeneralComponentsStylesheet.container,
+        { backgroundColor: palette.mainTint },
+      ]}
+    >
       <View
         style={{
           display: "flex",
@@ -83,8 +88,8 @@ const Bills: React.FC<any> = () => {
             style={{
               fontSize: 18,
               textAlign: "left",
-              color: palette.main,
-              paddingLeft: 40,
+              color: palette.headerMain,
+              paddingLeft: 16,
               paddingBottom: 10,
             }}
           >

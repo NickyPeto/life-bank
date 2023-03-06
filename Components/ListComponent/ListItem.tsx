@@ -14,15 +14,41 @@ const ListItem: React.FC<any> = ({ item }) => {
       ]}
     >
       <View style={ListComponentStylesheet.listItemHeader}>
-        <Text style={ListComponentStylesheet.textBold}>{item.title}</Text>
-        <Text style={ListComponentStylesheet.textCaption}>
+        <Text
+          style={[
+            ListComponentStylesheet.textBold,
+            { color: palette.typographyMain },
+          ]}
+        >
+          {item.title}
+        </Text>
+        <Text
+          style={[
+            ListComponentStylesheet.textCaption,
+            { color: palette.typographyMain },
+          ]}
+        >
           {item.description}
         </Text>
       </View>
 
       <View style={ListComponentStylesheet.listItemHeader}>
-        <Text style={ListComponentStylesheet.textBold}>{item.amount}</Text>
-        <Text style={ListComponentStylesheet.textCaption}>{item.date}</Text>
+        <Text
+          style={[
+            ListComponentStylesheet.textBold,
+            { color: palette.typographyMain },
+          ]}
+        >
+          {item.amount}
+        </Text>
+        <Text
+          style={[
+            ListComponentStylesheet.textCaption,
+            { color: palette.typographyMain },
+          ]}
+        >
+          {item.date}
+        </Text>
       </View>
     </Pressable>
   );

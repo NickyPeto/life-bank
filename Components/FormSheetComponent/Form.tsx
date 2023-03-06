@@ -14,7 +14,7 @@ const Form: React.FC<FormModel> = ({ placeholders, extraData }) => {
       style={{
         flex: 1,
         paddingTop: StatusBar.currentHeight,
-        backgroundColor: palette.light,
+        backgroundColor: palette.mainTint,
       }}
       contentContainerStyle={{
         paddingVertical: 60,

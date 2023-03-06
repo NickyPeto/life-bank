@@ -2,8 +2,10 @@ import { ScrollView } from "react-native";
 
 import ChartComponent from "../../Components/ChartComponent/ChartComponent";
 import InvestmentsBottomTab from "../../Components/InvestmentsBottomTab/InvestmentsBottomTab";
+import { useTheme } from "../../Theme/Index";
 
 const Investments: React.FC<any> = () => {
+  const { palette } = useTheme();
   return (
     <>
       <ScrollView
@@ -12,6 +14,7 @@ const Investments: React.FC<any> = () => {
         contentContainerStyle={{
           justifyContent: "center",
           flex: 1,
+          backgroundColor: palette.mainTint,
         }}
       >
         <ChartComponent />

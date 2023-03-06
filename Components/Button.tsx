@@ -11,7 +11,7 @@ export const CustomButton: React.FC<ButtonProps> = ({ title, press }) => {
     <View
       style={[
         GeneralComponentsStylesheet.buttonContainer,
-        { backgroundColor: palette.light },
+        { backgroundColor: palette.mainTint },
       ]}
     >
       <Button

@@ -114,7 +114,7 @@ const ListComponent: React.FC<any> = (props) => {
     <View
       style={[
         ListComponentStylesheet.listComponent,
-        { backgroundColor: palette.light },
+        { backgroundColor: palette.shortcutsBtn },
       ]}
     >
       <View style={ListComponentStylesheet.listComponentWrapper}>
@@ -123,7 +123,7 @@ const ListComponent: React.FC<any> = (props) => {
             <Text
               style={[
                 typographyStylesheet.typographyBold,
-                { color: palette.main },
+                { color: palette.headerMain },
               ]}
             >
               {props.header}

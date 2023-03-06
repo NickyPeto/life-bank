@@ -38,7 +38,9 @@ export const ProfileStylesheet = StyleSheet.create({
   },
   footerWrapper: {
     display: "flex",
-    flex: 1,
+    //flex: 1,
+    paddingTop: 20,
+    paddingBottom: 20,
     justifyContent: "center",
     flexDirection: "row",
     alignContent: "center",

@@ -13,7 +13,7 @@ const Transactions = (props: any) => {
     <View
       style={[
         GeneralComponentsStylesheet.container,
-        { backgroundColor: palette.light },
+        { backgroundColor: palette.mainTint },
       ]}
     >
       <SearchBar />

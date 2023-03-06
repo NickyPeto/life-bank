@@ -45,6 +45,7 @@ const QrReader: React.FC<any> = () => {
         flex: 1,
         justifyContent: "center",
         alignContent: "center",
+        backgroundColor: palette.mainTint,
       }}
     >
       <View

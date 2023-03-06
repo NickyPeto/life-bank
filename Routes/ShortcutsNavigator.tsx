@@ -14,9 +14,9 @@ export default function ShortcutsNavigator() {
       <Screen
         options={{
           headerShown: true,
-          headerTintColor: palette.light,
+          headerTintColor: palette.white,
           headerTitleAlign: "center",
-          headerStyle: { backgroundColor: palette.main },
+          headerStyle: { backgroundColor: palette.bottomTab },
         }}
         name="Transactions"
         component={Transactions}
@@ -24,9 +24,9 @@ export default function ShortcutsNavigator() {
       <Screen
         options={{
           headerShown: true,
-          headerTintColor: palette.light,
+          headerTintColor: palette.white,
           headerTitleAlign: "center",
-          headerStyle: { backgroundColor: palette.main },
+          headerStyle: { backgroundColor: palette.bottomTab },
         }}
         name="Bills"
         component={Bills}
@@ -34,9 +34,9 @@ export default function ShortcutsNavigator() {
       <Screen
         options={{
           headerShown: true,
-          headerTintColor: palette.light,
+          headerTintColor: palette.white,
           headerTitleAlign: "center",
-          headerStyle: { backgroundColor: palette.main },
+          headerStyle: { backgroundColor: palette.bottomTab },
         }}
         name="Investments"
         component={Investments}
@@ -44,9 +44,9 @@ export default function ShortcutsNavigator() {
       <Screen
         options={{
           headerShown: true,
-          headerTintColor: palette.light,
+          headerTintColor: palette.white,
           headerTitleAlign: "center",
-          headerStyle: { backgroundColor: palette.main },
+          headerStyle: { backgroundColor: palette.bottomTab },
         }}
         name="QR"
         component={QrReader}

@@ -55,7 +55,7 @@ const Home: React.FC<any> = () => {
     <SafeAreaView
       style={[
         GeneralComponentsStylesheet.lightTheme,
-        { backgroundColor: palette.light },
+        { backgroundColor: palette.mainTint },
       ]}
     >
       <View
@@ -66,18 +66,18 @@ const Home: React.FC<any> = () => {
           <Text
             style={[
               typographyStylesheet.typographyHeadingBoldWhite,
-              { color: palette.light },
+              { color: palette.white },
             ]}
           >
             Nombre y apellido
           </Text>
-          <Icon name="bell" type="fontisto" color={palette.light} />
+          <Icon name="bell" type="fontisto" color={palette.white} />
         </View>
         <View style={homeStyleSheet.homeSimpleColumn}>
           <Text
             style={[
               typographyStylesheet.typographyBoldWhite,
-              { color: palette.light },
+              { color: palette.white },
             ]}
           >
             $23.000
@@ -88,14 +88,14 @@ const Home: React.FC<any> = () => {
             <Text
               style={[
                 typographyStylesheet.typographyCaptionBoldWhite,
-                { color: palette.light },
+                { color: palette.white },
               ]}
             >
               CBU
               <Text
                 style={[
                   typographyStylesheet.typographyCaptionWhite,
-                  { color: palette.light },
+                  { color: palette.white },
                 ]}
               >
                 : 023465410321456413564
@@ -104,14 +104,14 @@ const Home: React.FC<any> = () => {
             <Text
               style={[
                 typographyStylesheet.typographyCaptionBoldWhite,
-                { color: palette.light },
+                { color: palette.white },
               ]}
             >
               Alias
               <Text
                 style={[
                   typographyStylesheet.typographyCaptionWhite,
-                  { color: palette.light },
+                  { color: palette.white },
                 ]}
               >
                 : CASA.MANI.TOMATE
@@ -122,7 +122,7 @@ const Home: React.FC<any> = () => {
           <Icon
             name="content-copy"
             type="material-community"
-            color={palette.light}
+            color={palette.white}
           />
         </View>
       </View>

@@ -13,7 +13,7 @@ const SearchBar: React.FC<any> = (props) => {
           { backgroundColor: palette.lightGray },
         ]}
         inputStyle={{
-          color: palette.main,
+          color: palette.typographyMain,
         }}
         placeholder="Search"
         leftIcon={{

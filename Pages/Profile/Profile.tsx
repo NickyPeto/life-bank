@@ -16,7 +16,6 @@ const Profile = (props: any) => {
   const [isDark, setIsDark] = useState<boolean>(false);
 
   const setColorScheme = () => {
-    console.log(colorScheme);
     setIsDark(!isDark);
     if (!isDark) {
       setScheme("dark");
@@ -54,7 +53,10 @@ const Profile = (props: any) => {
 
   return (
     <View
-      style={[ProfileStylesheet.container, { backgroundColor: palette.light }]}
+      style={[
+        ProfileStylesheet.container,
+        { backgroundColor: palette.mainTint },
+      ]}
     >
       <View
         style={[
@@ -62,11 +64,11 @@ const Profile = (props: any) => {
           { backgroundColor: palette.main },
         ]}
       >
-        <Icon name="user" type="feather" color={palette.light} size={120} />
+        <Icon name="user" type="feather" color={palette.white} size={120} />
         <Text
           style={[
             typographyStylesheet.typographyNormalBoldWhite,
-            { color: palette.light },
+            { color: palette.white },
           ]}
         >
           Nombre y apellido
@@ -77,14 +79,14 @@ const Profile = (props: any) => {
             <Text
               style={[
                 typographyStylesheet.typographyCaptionBoldWhite,
-                { color: palette.light },
+                { color: palette.white },
               ]}
             >
               CBU
               <Text
                 style={[
                   typographyStylesheet.typographyCaptionWhite,
-                  { color: palette.light },
+                  { color: palette.white },
                 ]}
               >
                 : 023465410321456413564
@@ -93,14 +95,14 @@ const Profile = (props: any) => {
             <Text
               style={[
                 typographyStylesheet.typographyCaptionBoldWhite,
-                { color: palette.light },
+                { color: palette.white },
               ]}
             >
               Alias
               <Text
                 style={[
                   typographyStylesheet.typographyCaptionWhite,
-                  { color: palette.light },
+                  { color: palette.white },
                 ]}
               >
                 : CASA.MANI.TOMATE
@@ -111,7 +113,7 @@ const Profile = (props: any) => {
             <Icon
               name="content-copy"
               type="material-community"
-              color={palette.light}
+              color={palette.white}
             />
           </View>
         </View>
@@ -119,7 +121,7 @@ const Profile = (props: any) => {
       <View
         style={[
           ProfileStylesheet.footerWrapper,
-          { backgroundColor: palette.light },
+          { backgroundColor: palette.mainTint },
         ]}
       >
         {IconSets.map((row, index) => (

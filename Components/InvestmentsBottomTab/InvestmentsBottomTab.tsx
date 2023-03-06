@@ -16,10 +16,9 @@ const InvestmentsBottomTab: React.FC<any> = () => {
         justifyContent: "space-evenly",
         elevation: 10,
         flex: 1,
-        borderTopLeftRadius: 40,
-        borderTopRightRadius: 40,
-        backgroundColor: palette.light,
-        paddingTop: 20,
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
+        backgroundColor: palette.shortcutsBtn,
       }}
     >
       <View
@@ -36,8 +35,15 @@ const InvestmentsBottomTab: React.FC<any> = () => {
         }}
       >
         <View style={ListComponentStylesheet.listItemHeader}>
-          <Text style={ListComponentStylesheet.textBold}>$ 150000</Text>
-          <Text>SBAB</Text>
+          <Text
+            style={[
+              ListComponentStylesheet.textBold,
+              { color: palette.typographyMain },
+            ]}
+          >
+            $ 150000
+          </Text>
+          <Text style={{ color: palette.typographyMain }}>SBAB</Text>
         </View>
 
         <View style={ListComponentStylesheet.listItemHeader}>
@@ -49,7 +55,7 @@ const InvestmentsBottomTab: React.FC<any> = () => {
           >
             $200
           </Text>
-          <Text>12/01/2022</Text>
+          <Text style={{ color: palette.typographyMain }}>12/01/2022</Text>
         </View>
       </View>
       <View
@@ -83,11 +89,11 @@ const InvestmentsBottomTab: React.FC<any> = () => {
       >
         <Pressable
           style={{
-            backgroundColor: palette.light,
+            backgroundColor: "transparent",
             justifyContent: "center",
             alignSelf: "center",
             width: "40%",
-            borderColor: palette.main,
+            borderColor: palette.borderColorSecondaryBtn,
             borderWidth: 2,
             height: 40,
             borderRadius: 10,
@@ -96,7 +102,7 @@ const InvestmentsBottomTab: React.FC<any> = () => {
         >
           <Text
             style={{
-              color: palette.main,
+              color: palette.borderColorSecondaryBtn,
               textAlign: "center",
               fontSize: 18,
               fontWeight: "bold",
@@ -113,7 +119,7 @@ const InvestmentsBottomTab: React.FC<any> = () => {
         >
           <Text
             style={{
-              color: palette.light,
+              color: palette.white,
               textAlign: "center",
               fontSize: 18,
               fontWeight: "bold",
