@@ -1,8 +1,9 @@
-import React from "react";
-import { View, Text, SafeAreaView } from "react-native";
+import React, { useState } from "react";
+import { View, Text, SafeAreaView, Button } from "react-native";
 import { Icon } from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import * as Clipboard from "expo-clipboard";
 
 import { GeneralComponentsStylesheet } from "../../Stylesheets/GneralComponentsStylesheets";
 import ShortcutsTab from "../../Components/ShortcutsTab/ShortcutsTab";
@@ -14,9 +15,22 @@ import ListComponent, {
 import { ShortcutIconsProps } from "../../Models/SharedProps";
 import { Circles } from "../../assets/svgs";
 import { useTheme } from "../../Theme/Index";
+import ClipboardCopier from "../../Components/ClipboardCopier/ClipboardCopier";
 
 const Home: React.FC<any> = () => {
   const { palette } = useTheme();
+  const [copiedText, setCopiedText] = useState<string>("");
+
+  const copyToClipboard = async (text: string) => {
+    await Clipboard.setStringAsync(text);
+    fetchCopiedText();
+  };
+
+  const fetchCopiedText = async () => {
+    const text = await Clipboard.getStringAsync();
+    setCopiedText(text);
+  };
+
   //This stack navigator is going to allow us to navigate on the custom tool bar.
   type ShortcutStack = NativeStackNavigationProp<any, "Shortcuts">;
   const nagivationBar = useNavigation<ShortcutStack>();
@@ -118,11 +132,8 @@ const Home: React.FC<any> = () => {
               </Text>
             </Text>
           </View>
-
-          <Icon
-            name="content-copy"
-            type="material-community"
-            color={palette.white}
+          <ClipboardCopier
+            props={'"CBU:023465410321456413564 , Alias: CASA.MANI.TOMATE"'}
           />
         </View>
       </View>

@@ -9,6 +9,7 @@ import { ShortcutIconsProps } from "../../Models/SharedProps";
 import { useState } from "react";
 import { GeneralComponentsStylesheet } from "../../Stylesheets/GneralComponentsStylesheets";
 import { useTheme } from "../../Theme/Index";
+import ClipboardCopier from "../../Components/ClipboardCopier/ClipboardCopier";
 
 const Profile = (props: any) => {
   const { palette, setScheme } = useTheme();
@@ -109,13 +110,9 @@ const Profile = (props: any) => {
               </Text>
             </Text>
           </View>
-          <View style={ProfileStylesheet.infoSectionRowRightContainer}>
-            <Icon
-              name="content-copy"
-              type="material-community"
-              color={palette.white}
-            />
-          </View>
+          <ClipboardCopier
+            props={'"CBU:023465410321456413564 , Alias: CASA.MANI.TOMATE"'}
+          />
         </View>
       </View>
       <View

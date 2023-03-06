@@ -1,11 +1,12 @@
 import React from "react";
+import { Text } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
-import { rootNavigationRef } from "./RootNavigationRef";
+import * as Linking from "expo-linking";
 
+import { rootNavigationRef } from "./RootNavigationRef";
 import Login from "../Pages/Login/Login";
 import BottomTab from "./BottomTab";
-import ShortcutsNavigator from "./ShortcutsNavigator";
 
 export type RootStackParamList = {
   Login: undefined;
@@ -22,11 +23,17 @@ export type RootStackParamList = {
 const { Screen, Navigator } = createNativeStackNavigator<RootStackParamList>();
 
 export default function AppNavigator() {
+  const prefix = Linking.createURL("/");
   const linking = {
-    prefixes: ["lifebank://", "https://lifebank.com"],
+    prefixes: [prefix, "lifebank://", "https://lifebank.com"],
   };
+
   return (
-    <NavigationContainer linking={linking} ref={rootNavigationRef}>
+    <NavigationContainer
+      linking={linking}
+      ref={rootNavigationRef}
+      fallback={<Text>Loading...</Text>}
+    >
       <Navigator
         initialRouteName="Login"
         screenOptions={{ headerShown: false }}
