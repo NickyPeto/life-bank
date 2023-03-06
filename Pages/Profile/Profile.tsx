@@ -6,11 +6,11 @@ import ShortcutsTab from "../../Components/ShortcutsTab/ShortcutsTab";
 import { ProfileStylesheet } from "../../Stylesheets/ProfileStylesheet";
 import { CustomLabels } from "../../assets/svgs";
 
-import ClipboardCopier from "../../Components/ClipboardCopier/ClipboardCopier";
 import { ShortcutIconsProps } from "../../Models/SharedProps";
 import { useState } from "react";
 import { GeneralComponentsStylesheet } from "../../Stylesheets/GneralComponentsStylesheets";
 import { useTheme } from "../../Theme/Index";
+import ClipboardCopier from "../../Components/ClipboardCopier/ClipboardCopier";
 
 const Profile = (props: any) => {
   const { palette, setScheme } = useTheme();
