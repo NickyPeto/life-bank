@@ -1,4 +1,10 @@
-import { View, Text, Pressable } from "react-native";
+import {
+  View,
+  Text,
+  useColorScheme,
+  Appearance,
+  Pressable,
+} from "react-native";
 import { Icon } from "react-native-elements";
 
 import { GeneralComponentsStylesheet } from "../../Stylesheets/GneralComponentsStylesheets";
@@ -9,6 +15,8 @@ import { useTheme } from "../../Theme/Index";
 const ShortcutsTab: React.FC<ShortcutIconsProps> = (
   props: ShortcutIconsProps
 ) => {
+  const colorScheme = Appearance.getColorScheme();
+  console.log(colorScheme);
   const { palette } = useTheme();
   return (
     <View
