@@ -6,6 +6,7 @@ import {
   Background,
   VictoryAxis,
   VictoryChart,
+  VictoryContainer,
   VictoryGroup,
   VictoryLabel,
   VictoryLine,
