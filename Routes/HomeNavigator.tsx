@@ -1,12 +1,15 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
 import Home from "../Pages/Home/Home";
-import { main } from "../Stylesheets/ColorPallete";
+import { useTheme } from "../Theme/Index";
 import { RootStackParamList } from "./AppNavigator";
 import ShortcutsNavigator from "./ShortcutsNavigator";
 
 export default function HomeNavigator() {
   const { Screen, Navigator } =
     createNativeStackNavigator<RootStackParamList>();
+
+  const { palette } = useTheme();
   return (
     <Navigator initialRouteName="HomeNavigator">
       <Screen
@@ -17,7 +20,7 @@ export default function HomeNavigator() {
           headerTitle: "",
           headerShadowVisible: false,
           headerStyle: {
-            backgroundColor: main,
+            backgroundColor: palette.main,
           },
         }}
       />

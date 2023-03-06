@@ -1,16 +1,12 @@
 import { View, Text, Pressable } from "react-native";
 import Slider from "@react-native-community/slider";
 
-import {
-  light,
-  main,
-  mainLighter,
-  mainUltraLight,
-} from "../../Stylesheets/ColorPallete";
 import { ListComponentStylesheet } from "../../Stylesheets/ListComponentStylesheet";
 import { GeneralComponentsStylesheet } from "../../Stylesheets/GneralComponentsStylesheets";
+import { useTheme } from "../../Theme/Index";
 
 const InvestmentsBottomTab: React.FC<any> = () => {
+  const { palette } = useTheme();
   //FIXME: move all to stylesheet
   return (
     <View
@@ -22,14 +18,14 @@ const InvestmentsBottomTab: React.FC<any> = () => {
         flex: 1,
         borderTopLeftRadius: 40,
         borderTopRightRadius: 40,
-        backgroundColor: light,
+        backgroundColor: palette.light,
         paddingTop: 20,
       }}
     >
       <View
         style={{
           display: "flex",
-          backgroundColor: mainUltraLight,
+          backgroundColor: palette.mainUltraLight,
           borderRadius: 20,
           flexDirection: "row",
           height: 80,
@@ -48,7 +44,7 @@ const InvestmentsBottomTab: React.FC<any> = () => {
           <Text
             style={[
               ListComponentStylesheet.textBold,
-              { color: "lightgreen", textAlign: "right" },
+              { color: palette.confirm, textAlign: "right" },
             ]}
           >
             $200
@@ -71,9 +67,9 @@ const InvestmentsBottomTab: React.FC<any> = () => {
           }}
           minimumValue={0}
           maximumValue={1}
-          minimumTrackTintColor={mainLighter}
-          maximumTrackTintColor={main}
-          thumbTintColor={main}
+          minimumTrackTintColor={palette.mainLighter}
+          maximumTrackTintColor={palette.main}
+          thumbTintColor={palette.main}
         />
       </View>
       <View
@@ -87,11 +83,11 @@ const InvestmentsBottomTab: React.FC<any> = () => {
       >
         <Pressable
           style={{
-            backgroundColor: light,
+            backgroundColor: palette.light,
             justifyContent: "center",
             alignSelf: "center",
             width: "40%",
-            borderColor: main,
+            borderColor: palette.main,
             borderWidth: 2,
             height: 40,
             borderRadius: 10,
@@ -100,7 +96,7 @@ const InvestmentsBottomTab: React.FC<any> = () => {
         >
           <Text
             style={{
-              color: main,
+              color: palette.main,
               textAlign: "center",
               fontSize: 18,
               fontWeight: "bold",
@@ -112,12 +108,12 @@ const InvestmentsBottomTab: React.FC<any> = () => {
         <Pressable
           style={[
             GeneralComponentsStylesheet.buttonMainSmall,
-            { width: "40%", marginLeft: 10 },
+            { width: "40%", marginLeft: 10, backgroundColor: palette.main },
           ]}
         >
           <Text
             style={{
-              color: light,
+              color: palette.light,
               textAlign: "center",
               fontSize: 18,
               fontWeight: "bold",

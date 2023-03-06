@@ -1,22 +1,22 @@
 import React from "react";
 import { View, Text, SafeAreaView } from "react-native";
-
+import { Icon } from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../../Routes/AppNavigator";
+
 import { GeneralComponentsStylesheet } from "../../Stylesheets/GneralComponentsStylesheets";
 import ShortcutsTab from "../../Components/ShortcutsTab/ShortcutsTab";
 import { typographyStylesheet } from "../../Stylesheets/Typography";
 import { homeStyleSheet } from "../../Stylesheets/HomeStylesheet";
-import { Icon } from "react-native-elements";
-import { light } from "../../Stylesheets/ColorPallete";
 import ListComponent, {
   data,
 } from "../../Components/ListComponent/ListComponent";
 import { ShortcutIconsProps } from "../../Models/SharedProps";
 import { Circles } from "../../assets/svgs";
+import { useTheme } from "../../Theme/Index";
 
 const Home: React.FC<any> = () => {
+  const { palette } = useTheme();
   //This stack navigator is going to allow us to navigate on the custom tool bar.
   type ShortcutStack = NativeStackNavigationProp<any, "Shortcuts">;
   const nagivationBar = useNavigation<ShortcutStack>();
@@ -52,35 +52,78 @@ const Home: React.FC<any> = () => {
   ];
 
   return (
-    <SafeAreaView style={GeneralComponentsStylesheet.lightTheme}>
-      <View style={homeStyleSheet.homeHeader}>
+    <SafeAreaView
+      style={[
+        GeneralComponentsStylesheet.lightTheme,
+        { backgroundColor: palette.light },
+      ]}
+    >
+      <View
+        style={[homeStyleSheet.homeHeader, { backgroundColor: palette.main }]}
+      >
         <Circles height={"100%"} width={"100%"} />
         <View style={homeStyleSheet.homeHeaderRowWithicon}>
-          <Text style={typographyStylesheet.typographyHeadingBoldWhite}>
+          <Text
+            style={[
+              typographyStylesheet.typographyHeadingBoldWhite,
+              { color: palette.light },
+            ]}
+          >
             Nombre y apellido
           </Text>
-          <Icon name="bell" type="fontisto" color={light} />
+          <Icon name="bell" type="fontisto" color={palette.light} />
         </View>
         <View style={homeStyleSheet.homeSimpleColumn}>
-          <Text style={typographyStylesheet.typographyBoldWhite}>$23.000</Text>
+          <Text
+            style={[
+              typographyStylesheet.typographyBoldWhite,
+              { color: palette.light },
+            ]}
+          >
+            $23.000
+          </Text>
         </View>
         <View style={homeStyleSheet.homeHeaderRowBottomWithicon}>
           <View style={homeStyleSheet.homeHeaderCaption}>
-            <Text style={typographyStylesheet.typographyCaptionBoldWhite}>
+            <Text
+              style={[
+                typographyStylesheet.typographyCaptionBoldWhite,
+                { color: palette.light },
+              ]}
+            >
               CBU
-              <Text style={typographyStylesheet.typographyCaptionWhite}>
+              <Text
+                style={[
+                  typographyStylesheet.typographyCaptionWhite,
+                  { color: palette.light },
+                ]}
+              >
                 : 023465410321456413564
               </Text>
             </Text>
-            <Text style={typographyStylesheet.typographyCaptionBoldWhite}>
+            <Text
+              style={[
+                typographyStylesheet.typographyCaptionBoldWhite,
+                { color: palette.light },
+              ]}
+            >
               Alias
-              <Text style={typographyStylesheet.typographyCaptionWhite}>
+              <Text
+                style={[
+                  typographyStylesheet.typographyCaptionWhite,
+                  { color: palette.light },
+                ]}
+              >
                 : CASA.MANI.TOMATE
               </Text>
             </Text>
           </View>
 
-          <Icon name="content-copy" type="material-community" color={light} />
+          <Icon
+            name="content-copy"
+            type="material-community"
+            color={palette.light}
+          />
         </View>
       </View>
       <View style={homeStyleSheet.homeTabContainer}>

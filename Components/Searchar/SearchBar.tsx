@@ -1,21 +1,25 @@
 import { View } from "react-native";
 import { Icon, Input } from "react-native-elements";
-import { main } from "../../Stylesheets/ColorPallete";
 import { SearchbarStylesheet } from "../../Stylesheets/SearchbarConatainer";
+import { useTheme } from "../../Theme/Index";
 
 const SearchBar: React.FC<any> = (props) => {
+  const { palette } = useTheme();
   return (
     <View style={SearchbarStylesheet.container}>
       <Input
-        inputContainerStyle={SearchbarStylesheet.inputContainerStyle}
+        inputContainerStyle={[
+          SearchbarStylesheet.inputContainerStyle,
+          { backgroundColor: palette.lightGray },
+        ]}
         inputStyle={{
-          color: main,
+          color: palette.main,
         }}
         placeholder="Search"
         leftIcon={{
           type: "ionicon",
           name: "search",
-          color: main,
+          color: palette.main,
           size: 20,
           style: { textAlign: "center", paddingLeft: 10 },
         }}
@@ -23,7 +27,7 @@ const SearchBar: React.FC<any> = (props) => {
       <Icon
         name="ios-filter"
         type="ionicon"
-        color={main}
+        color={palette.main}
         style={{
           display: "flex",
           alignSelf: "center",

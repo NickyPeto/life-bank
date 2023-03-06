@@ -11,9 +11,11 @@ import { FormModel } from "../../Models/FormModels";
 import { Circles, SvgLogo } from "../../assets/svgs";
 import { CustomButton } from "../../Components/Button";
 import { LoginStylesheet } from "../../Stylesheets/LoginStylesheet";
+import { useTheme } from "../../Theme/Index";
 
 const Login = () => {
   const [login, setLogin] = useState<boolean>(true);
+  const { palette } = useTheme();
 
   function handleClick() {
     setLogin(!login);
@@ -51,7 +53,9 @@ const Login = () => {
   };
 
   return (
-    <SafeAreaView style={LoginStylesheet.container}>
+    <SafeAreaView
+      style={[LoginStylesheet.container, { backgroundColor: palette.main }]}
+    >
       <View
         style={{
           display: "flex",
@@ -63,7 +67,12 @@ const Login = () => {
         <>
           {login ? (
             <>
-              <View style={LoginStylesheet.logoContainer}>
+              <View
+                style={[
+                  LoginStylesheet.logoContainer,
+                  { backgroundColor: palette.main },
+                ]}
+              >
                 <View style={LoginStylesheet.logo}>
                   <SvgLogo height={"100%"} width={"100%"} fill={"#fff"} />
                 </View>

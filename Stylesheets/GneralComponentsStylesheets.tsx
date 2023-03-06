@@ -1,54 +1,56 @@
 import { StyleSheet } from "react-native";
-import { dark, main, light, mainUltraLight } from "./ColorPallete";
+import { useTheme } from "../Theme/Index";
 
 //FIXME: separar estilos por componente
 
+// const { palette } = useTheme();
+
 export const GeneralComponentsStylesheet = StyleSheet.create({
   buttonContainer: {
-    backgroundColor: light,
+    // backgroundColor: palette.light,
     display: "flex",
   },
   buttonTitleStyle: {
     fontSize: 20,
   },
   buttonMain: {
-    backgroundColor: main,
+    // backgroundColor: palette.main,
     justifyContent: "center",
     alignSelf: "center",
-    color: light,
+    // color: palette.light,
     width: "90%",
     height: 56,
     marginBottom: 20,
     borderRadius: 10,
   },
   buttonMainSmall: {
-    backgroundColor: main,
+    // backgroundColor: palette.main,
     justifyContent: "center",
     alignSelf: "center",
-    color: light,
+    // color: palette.light,
     width: "90%",
     height: 40,
     borderRadius: 10,
   },
   darkTheme: {
-    backgroundColor: dark,
+    // backgroundColor: palette.dark,
     flex: 1,
     justifyContent: "center",
   },
   lightTheme: {
-    backgroundColor: light,
+    // backgroundColor: palette.light,
     flex: 1,
     justifyContent: "center",
   },
   formContainer: {
-    backgroundColor: light,
+    // backgroundColor: palette.light,
     display: "flex",
     flex: 1,
     flexDirection: "column",
     justifyContent: "center",
   },
   inputContainer: {
-    color: main,
+    // color: palette.main,
     padding: 20,
     fontWeight: "500",
   },
@@ -57,11 +59,11 @@ export const GeneralComponentsStylesheet = StyleSheet.create({
     height: 70,
     padding: 20,
     fontWeight: "700",
-    color: main,
+    // color: palette.main,
     borderColor: "transparent",
     underlineColorAndroid: "transparent",
     fontSize: 16,
-    backgroundColor: mainUltraLight,
+    // backgroundColor: palette.mainUltraLight,
     opacity: 0.7,
   },
   shortcutTabContainer: {
@@ -74,12 +76,12 @@ export const GeneralComponentsStylesheet = StyleSheet.create({
     display: "flex",
     height: 80,
     width: 80,
-    backgroundColor: light,
+    // backgroundColor: palette.light,
     //For android users
     elevation: 10,
     //For ios users
     zIndex: 10,
-    shadowColor: dark,
+    // shadowColor: palette.dark,
     shadowOffset: { width: -4, height: 4 },
     shadowOpacity: 0.4,
     shadowRadius: 3,

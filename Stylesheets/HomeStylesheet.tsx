@@ -1,11 +1,13 @@
 import { StyleSheet } from "react-native";
-import { main } from "./ColorPallete";
+import { useTheme } from "../Theme/Index";
+
+// const { palette } = useTheme();
 
 export const homeStyleSheet = StyleSheet.create({
   homeHeader: {
     display: "flex",
     flex: 1,
-    backgroundColor: main,
+    // backgroundColor: palette.main,
     justifyContent: "space-evenly",
     alignItems: "flex-start",
     flexDirection: "column",

@@ -1,12 +1,12 @@
 import { View, Text, ScrollView, StatusBar } from "react-native";
 
 import { FormModel } from "../../Models/FormModels";
-import { light, main } from "../../Stylesheets/ColorPallete";
+import { useTheme } from "../../Theme/Index";
 import CustomInputs from "../CustomInputs/CustomInputs";
 
 const Form: React.FC<FormModel> = ({ placeholders, extraData }) => {
   const inputPlaceholders = Object.values(placeholders);
-
+  const { palette } = useTheme();
   //TODO: Move styles to stylesheeyt
 
   return (
@@ -14,7 +14,7 @@ const Form: React.FC<FormModel> = ({ placeholders, extraData }) => {
       style={{
         flex: 1,
         paddingTop: StatusBar.currentHeight,
-        backgroundColor: light,
+        backgroundColor: palette.light,
       }}
       contentContainerStyle={{
         paddingVertical: 60,
@@ -28,7 +28,7 @@ const Form: React.FC<FormModel> = ({ placeholders, extraData }) => {
               placeholder={values}
               icon={{
                 type: "ionicon",
-                color: main,
+                color: palette.main,
                 marginRight: 20,
               }}
             />

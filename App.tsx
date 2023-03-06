@@ -2,6 +2,7 @@ import React from "react";
 import { useFonts } from "expo-font";
 
 import AppNavigator from "./Routes/AppNavigator";
+import { ThemeProvider } from "./Theme/Index";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -13,8 +14,8 @@ export default function App() {
     "SFUIDisplay-Semibold": require("./assets/font/SFUIDisplay-Semibold.otf"),
   });
   return (
-    <>
+    <ThemeProvider>
       <AppNavigator />
-    </>
+    </ThemeProvider>
   );
 }

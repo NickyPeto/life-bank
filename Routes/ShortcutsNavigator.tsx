@@ -4,18 +4,19 @@ import Bills from "../Pages/Bills/Bills";
 import Investments from "../Pages/Investments/Investments";
 import QrReader from "../Pages/QRReader/QRReader";
 import Transactions from "../Pages/Transactions/Transactions";
-import { light, main } from "../Stylesheets/ColorPallete";
+import { useTheme } from "../Theme/Index";
 
 export default function ShortcutsNavigator() {
   const { Screen, Navigator } = createNativeStackNavigator<any>();
+  const { palette } = useTheme();
   return (
     <Navigator initialRouteName="ShortcutsNav">
       <Screen
         options={{
           headerShown: true,
-          headerTintColor: light,
+          headerTintColor: palette.light,
           headerTitleAlign: "center",
-          headerStyle: { backgroundColor: main },
+          headerStyle: { backgroundColor: palette.main },
         }}
         name="Transactions"
         component={Transactions}
@@ -23,9 +24,9 @@ export default function ShortcutsNavigator() {
       <Screen
         options={{
           headerShown: true,
-          headerTintColor: light,
+          headerTintColor: palette.light,
           headerTitleAlign: "center",
-          headerStyle: { backgroundColor: main },
+          headerStyle: { backgroundColor: palette.main },
         }}
         name="Bills"
         component={Bills}
@@ -33,9 +34,9 @@ export default function ShortcutsNavigator() {
       <Screen
         options={{
           headerShown: true,
-          headerTintColor: light,
+          headerTintColor: palette.light,
           headerTitleAlign: "center",
-          headerStyle: { backgroundColor: main },
+          headerStyle: { backgroundColor: palette.main },
         }}
         name="Investments"
         component={Investments}
@@ -43,9 +44,9 @@ export default function ShortcutsNavigator() {
       <Screen
         options={{
           headerShown: true,
-          headerTintColor: light,
+          headerTintColor: palette.light,
           headerTitleAlign: "center",
-          headerStyle: { backgroundColor: main },
+          headerStyle: { backgroundColor: palette.main },
         }}
         name="QR"
         component={QrReader}

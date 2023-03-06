@@ -1,0 +1,31 @@
+export const lightPalette = {
+  dark: "#000",
+  light: "#fff",
+  lightGray: "#cbcbcb",
+  mainDark: "#51238D",
+  main: "#8b31fd",
+  mainLight: "#a661fc",
+  mainLighter: "#bf91fb",
+  mainUltraLight: "#eadcfc",
+  secondary: "#243bfe",
+  error: "#fd3731",
+  confirm: "#3ab74e",
+  warning: "#fdd015",
+  disabled: "#e6ccff",
+};
+
+export const darkPalette = {
+  dark: "#fff",
+  light: "#000",
+  lightGray: "#cbcbcb",
+  mainDark: "#51238D",
+  main: "#8b31fd",
+  mainLight: "#777777",
+  mainLighter: "#959595",
+  mainUltraLight: "#BABABA",
+  secondary: "#243bfe",
+  error: "#fd3731",
+  confirm: "#3ab74e",
+  warning: "#fdd015",
+  disabled: "#e6ccff",
+};

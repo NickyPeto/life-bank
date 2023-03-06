@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
+import { useTheme } from "../Theme/Index";
 
-import { main } from "./ColorPallete";
+// const { palette } = useTheme();
 
 export const ProfileStylesheet = StyleSheet.create({
   container: {
@@ -8,7 +9,7 @@ export const ProfileStylesheet = StyleSheet.create({
     flex: 1,
   },
   headerContainer: {
-    backgroundColor: main,
+    //backgroundColor: palette.main,
     display: "flex",
     flex: 1,
     borderBottomLeftRadius: 20,

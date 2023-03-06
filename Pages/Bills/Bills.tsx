@@ -7,8 +7,8 @@ import ListComponent, {
 } from "../../Components/ListComponent/ListComponent";
 import ShortcutsTab from "../../Components/ShortcutsTab/ShortcutsTab";
 import { ShortcutIconsProps } from "../../Models/SharedProps";
-import { main } from "../../Stylesheets/ColorPallete";
 import { GeneralComponentsStylesheet } from "../../Stylesheets/GneralComponentsStylesheets";
+import { useTheme } from "../../Theme/Index";
 
 const Iconsets: ShortcutIconsProps[] = [
   {
@@ -63,6 +63,7 @@ const Iconsets: ShortcutIconsProps[] = [
 
 const Bills: React.FC<any> = () => {
   const [row, setRow] = useState<ShortcutIconsProps[]>([]);
+  const { palette } = useTheme();
 
   useEffect(() => {
     setRow(Iconsets);
@@ -82,7 +83,7 @@ const Bills: React.FC<any> = () => {
             style={{
               fontSize: 18,
               textAlign: "left",
-              color: main,
+              color: palette.main,
               paddingLeft: 40,
               paddingBottom: 10,
             }}
@@ -104,6 +105,7 @@ const Bills: React.FC<any> = () => {
                 {row.slice(i * 4, (i + 1) * 4).map((icon, j) => (
                   <View
                     style={GeneralComponentsStylesheet.shortcutTabContainer}
+                    key={j}
                   >
                     <ShortcutsTab {...icon} />
                   </View>

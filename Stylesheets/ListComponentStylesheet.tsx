@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
-import { light, mainLight, mainLighter, mainUltraLight } from "./ColorPallete";
+import { useTheme } from "../Theme/Index";
+
+// const { palette } = useTheme();
 
 export const ListComponentStylesheet = StyleSheet.create({
   listItem: {
@@ -9,14 +11,14 @@ export const ListComponentStylesheet = StyleSheet.create({
     marginRight: 10,
     marginLeft: 10,
     elevation: 10,
-    backgroundColor: light,
+    // backgroundColor: palette.light,
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
   },
   listItemContainer: {
     display: "flex",
     flex: 1,
-    backgroundColor: mainUltraLight,
+    // backgroundColor: palette.mainUltraLight,
     borderRadius: 20,
     flexDirection: "row",
     height: 70,
@@ -48,7 +50,7 @@ export const ListComponentStylesheet = StyleSheet.create({
     marginRight: 10,
     marginLeft: 10,
     elevation: 10,
-    backgroundColor: light,
+    // backgroundColor: palette.light,
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
   },

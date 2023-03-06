@@ -1,27 +1,19 @@
-import { useEffect, useState } from "react";
-import { Pressable, View, Text, Button } from "react-native";
+import { useState } from "react";
+import { Pressable, View, Text } from "react-native";
 import { Icon } from "react-native-elements";
-import { ScrollView } from "react-native-gesture-handler";
 
 import {
   Background,
   VictoryAxis,
   VictoryChart,
-  VictoryContainer,
   VictoryGroup,
   VictoryLabel,
   VictoryLine,
   VictoryScatter,
 } from "victory-native";
-import { ChartDataProps } from "../../Models/SharedProps";
-import {
-  light,
-  main,
-  mainLight,
-  mainLighter,
-} from "../../Stylesheets/ColorPallete";
 
 import { typographyStylesheet } from "../../Stylesheets/Typography";
+import { useTheme } from "../../Theme/Index";
 
 // const labelsFirstHalf = ["jan", "feb", "mar", "apr", "may", "jun"];
 // const labelsSecondHalf = ["jul", "aug", "sep", "oct", "nov", "dec"];
@@ -57,6 +49,7 @@ const dataSecondHalf = {
 const ChartComponent: React.FC<any> = (props) => {
   const [data, setData] = useState<ChartProps>(dataFirstHalf);
   const [test, setTest] = useState<boolean>(false);
+  const { palette } = useTheme();
 
   let label;
 
@@ -80,14 +73,17 @@ const ChartComponent: React.FC<any> = (props) => {
         }}
       >
         <Text
-          style={[typographyStylesheet.typographyCaption, { marginRight: 20 }]}
+          style={[
+            typographyStylesheet.typographyCaption,
+            { marginRight: 20, color: palette.main },
+          ]}
         >
           {!test ? "First" : "Last"} half of the year
         </Text>
         <Pressable
           style={{
-            backgroundColor: light,
-            borderColor: main,
+            backgroundColor: palette.light,
+            borderColor: palette.main,
             marginRight: 20,
             borderWidth: 1,
             display: "flex",
@@ -99,9 +95,19 @@ const ChartComponent: React.FC<any> = (props) => {
           onPress={toggleLabels}
         >
           {!test ? (
-            <Icon name={"chevron-right"} type="entypo" size={20} color={main} />
+            <Icon
+              name={"chevron-right"}
+              type="entypo"
+              size={20}
+              color={palette.main}
+            />
           ) : (
-            <Icon name={"chevron-left"} type="entypo" size={20} color={main} />
+            <Icon
+              name={"chevron-left"}
+              type="entypo"
+              size={20}
+              color={palette.main}
+            />
           )}
         </Pressable>
       </View>
@@ -110,7 +116,7 @@ const ChartComponent: React.FC<any> = (props) => {
         backgroundComponent={<Background rx={10} ry={10} />}
         style={{
           background: {
-            fill: mainLighter,
+            fill: palette.mainLighter,
             fillOpacity: 0.2,
           },
         }}
@@ -122,7 +128,7 @@ const ChartComponent: React.FC<any> = (props) => {
               },
               grid: {
                 fill: "none",
-                stroke: mainLighter,
+                stroke: palette.mainLighter,
                 strokeOpacity: 0.5,
               },
             },
@@ -131,7 +137,7 @@ const ChartComponent: React.FC<any> = (props) => {
       >
         <VictoryGroup
           data={data.data}
-          color={main}
+          color={palette.main}
           categories={{
             x: data.labels,
           }}
@@ -171,7 +177,7 @@ const ChartComponent: React.FC<any> = (props) => {
               textAnchor="end"
               verticalAnchor="end"
               style={{
-                fill: mainLight,
+                fill: palette.mainLight,
                 fontSize: 14,
               }}
             />
@@ -185,7 +191,7 @@ const ChartComponent: React.FC<any> = (props) => {
               textAnchor="middle"
               verticalAnchor="middle"
               style={{
-                fill: mainLight,
+                fill: palette.mainLight,
                 fontSize: 14,
                 fontWeight: "bold",
               }}

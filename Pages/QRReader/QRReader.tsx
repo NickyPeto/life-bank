@@ -4,12 +4,14 @@ import { BarCodeScanner } from "expo-barcode-scanner";
 import { useEffect, useState } from "react";
 import { View, Text } from "react-native";
 import { Button } from "react-native-elements";
-import { mainDark } from "../../Stylesheets/ColorPallete";
+
 import { GeneralComponentsStylesheet } from "../../Stylesheets/GneralComponentsStylesheets";
+import { useTheme } from "../../Theme/Index";
 
 const QrReader: React.FC<any> = () => {
   const [hasPermission, setHasPermission] = useState<boolean>(false);
   const [scanned, setScanned] = useState(false);
+  const { palette } = useTheme();
 
   useEffect(() => {
     const getBarCodeScannerPermissions = async () => {
@@ -58,7 +60,7 @@ const QrReader: React.FC<any> = () => {
             justifyContent: "center",
             borderRadius: 10,
             borderWidth: 18,
-            borderColor: mainDark,
+            borderColor: palette.mainDark,
             alignContent: "center",
             backgroundColor: "transparent",
           }}

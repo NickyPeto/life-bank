@@ -1,10 +1,11 @@
 import { Icon } from "react-native-elements";
 
 import { GeneralComponentsStylesheet } from "../../Stylesheets/GneralComponentsStylesheets";
-import { mainLighter } from "../../Stylesheets/ColorPallete";
+
 import { TextInput } from "react-native-gesture-handler";
 import { View } from "react-native";
 import { useState } from "react";
+import { useTheme } from "../../Theme/Index";
 
 type PlaceholderProps = {
   placeholder: string | undefined;
@@ -13,6 +14,7 @@ type PlaceholderProps = {
 
 export const CustomInputs: React.FC<PlaceholderProps> = (props) => {
   const [visible, setVisible] = useState<boolean>(false);
+  const { palette } = useTheme();
   const isSecure =
     props.placeholder === "Password" || props.placeholder?.includes("password");
 
@@ -35,8 +37,11 @@ export const CustomInputs: React.FC<PlaceholderProps> = (props) => {
       >
         <TextInput
           placeholder={props.placeholder}
-          style={GeneralComponentsStylesheet.inputStyle}
-          placeholderTextColor={mainLighter}
+          style={[
+            GeneralComponentsStylesheet.inputStyle,
+            { backgroundColor: palette.mainUltraLight, color: palette.main },
+          ]}
+          placeholderTextColor={palette.mainLighter}
           secureTextEntry={visible}
         />
         {isSecure ? (

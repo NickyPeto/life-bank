@@ -1,12 +1,11 @@
 import { StyleSheet } from "react-native";
-
-import { dark, light, main } from "./ColorPallete";
-
+import { useTheme } from "../Theme/Index";
+// const { palette } = useTheme();
 export const OnboardingStylesheet = StyleSheet.create({
   container: {
     display: "flex",
     flex: 1,
-    backgroundColor: main,
+    // backgroundColor: palette.main,
   },
   imageContainer: {
     display: "flex",
@@ -18,20 +17,20 @@ export const OnboardingStylesheet = StyleSheet.create({
   footerContainer: {
     display: "flex",
     flex: 1,
-    backgroundColor: light,
+    // backgroundColor: palette.light,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
   },
   header: {
     fontSize: 25,
-    color: main,
+    // color: palette.main,
     fontWeight: "bold",
     textAlign: "center",
     margin: 15,
   },
   content: {
     fontSize: 15,
-    color: dark,
+    // color: palette.dark,
     textAlign: "left",
     margin: 10,
   },

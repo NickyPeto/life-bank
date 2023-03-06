@@ -3,6 +3,7 @@ import { FlatList, View, Text } from "react-native";
 import ListItem from "./ListItem";
 import { typographyStylesheet } from "../../Stylesheets/Typography";
 import { ListComponentStylesheet } from "../../Stylesheets/ListComponentStylesheet";
+import { useTheme } from "../../Theme/Index";
 
 //TODO: This will come from either mock bank api or my own api
 export const data = [
@@ -108,12 +109,23 @@ export const data = [
 
 //TODO: type this props explicitly
 const ListComponent: React.FC<any> = (props) => {
+  const { palette } = useTheme();
   return (
-    <View style={ListComponentStylesheet.listComponent}>
+    <View
+      style={[
+        ListComponentStylesheet.listComponent,
+        { backgroundColor: palette.light },
+      ]}
+    >
       <View style={ListComponentStylesheet.listComponentWrapper}>
         {props.hasHeader ? (
           <>
-            <Text style={typographyStylesheet.typographyBold}>
+            <Text
+              style={[
+                typographyStylesheet.typographyBold,
+                { color: palette.main },
+              ]}
+            >
               {props.header}
             </Text>
           </>
