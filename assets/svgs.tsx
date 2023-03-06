@@ -33,7 +33,6 @@ export const Circles = (props: SvgProps) => {
   const aspectRatio = originalWidth / originalHeight;
   const windowWidth = Dimensions.get("window").width;
 
-  console.log({ ...props });
   return (
     <View
       style={{
