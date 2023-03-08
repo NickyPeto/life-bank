@@ -1,7 +1,8 @@
 import { Pressable, View, Text } from "react-native";
-import { CustomTabProps } from "../../Models/SharedProps";
+
 import { tabComponentStylesheet } from "../../Stylesheets/TabComponentStyleshet";
 import { Button } from "react-native-elements";
+import { CustomTabProps } from "../../Models/SharedProps";
 import { useTheme } from "../../Theme/Index";
 
 export const TabComponent: React.FC<CustomTabProps> = (props) => {

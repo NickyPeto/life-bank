@@ -16,9 +16,6 @@ import {
 import { typographyStylesheet } from "../../Stylesheets/Typography";
 import { useTheme } from "../../Theme/Index";
 
-// const labelsFirstHalf = ["jan", "feb", "mar", "apr", "may", "jun"];
-// const labelsSecondHalf = ["jul", "aug", "sep", "oct", "nov", "dec"];
-
 type ChartProps = {
   labels: string[];
   data: any[];
@@ -35,7 +32,7 @@ const dataFirstHalf: ChartProps = {
   ],
 };
 
-const dataSecondHalf = {
+const dataSecondHalf: ChartProps = {
   labels: ["jul", "aug", "sep", "oct", "nov", "dec"],
   data: [
     { x: 0, y: 10 },
@@ -52,13 +49,8 @@ const ChartComponent: React.FC<any> = (props) => {
   const [test, setTest] = useState<boolean>(false);
   const { palette } = useTheme();
 
-  let label;
-
   const toggleLabels = () => {
     setTest(!test);
-    alert(test);
-    // setTest(!test);
-    // alert([dataFirstHalf.labels, test]);
     test ? setData(dataSecondHalf) : setData(dataFirstHalf);
   };
 
@@ -94,7 +86,7 @@ const ChartComponent: React.FC<any> = (props) => {
             width: 32,
             justifyContent: "center",
           }}
-          onPress={toggleLabels}
+          onPress={() => toggleLabels()}
         >
           {!test ? (
             <Icon

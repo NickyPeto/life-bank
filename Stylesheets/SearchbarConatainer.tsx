@@ -1,7 +1,4 @@
 import { StyleSheet } from "react-native";
-import { useTheme } from "../Theme/Index";
-
-// const { palette } = useTheme();
 
 export const SearchbarStylesheet = StyleSheet.create({
   container: {

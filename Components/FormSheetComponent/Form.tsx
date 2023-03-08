@@ -1,8 +1,8 @@
 import { View, Text, ScrollView, StatusBar } from "react-native";
 
+import CustomInputs from "../CustomInputs/CustomInputs";
 import { FormModel } from "../../Models/FormModels";
 import { useTheme } from "../../Theme/Index";
-import CustomInputs from "../CustomInputs/CustomInputs";
 
 const Form: React.FC<FormModel> = ({ placeholders, extraData }) => {
   const inputPlaceholders = Object.values(placeholders);

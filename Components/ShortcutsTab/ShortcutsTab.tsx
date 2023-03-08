@@ -2,8 +2,9 @@ import { View, Text, Pressable } from "react-native";
 import { Icon } from "react-native-elements";
 
 import { GeneralComponentsStylesheet } from "../../Stylesheets/GneralComponentsStylesheets";
-import { ShortcutIconsProps } from "../../Models/SharedProps";
+
 import { typographyStylesheet } from "../../Stylesheets/Typography";
+import { ShortcutIconsProps } from "../../Models/SharedProps";
 import { useTheme } from "../../Theme/Index";
 
 const ShortcutsTab: React.FC<ShortcutIconsProps> = (

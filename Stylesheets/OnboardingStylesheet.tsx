@@ -1,6 +1,5 @@
 import { StyleSheet } from "react-native";
-import { useTheme } from "../Theme/Index";
-// const { palette } = useTheme();
+
 export const OnboardingStylesheet = StyleSheet.create({
   container: {
     display: "flex",

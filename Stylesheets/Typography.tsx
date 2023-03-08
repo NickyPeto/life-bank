@@ -1,7 +1,4 @@
 import { StyleSheet } from "react-native";
-import { useTheme } from "../Theme/Index";
-
-// const { palette } = useTheme();
 
 //TODO: Move all text to this file
 export const typographyStylesheet = StyleSheet.create({

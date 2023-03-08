@@ -12,10 +12,11 @@ import { homeStyleSheet } from "../../Stylesheets/HomeStylesheet";
 import ListComponent, {
   data,
 } from "../../Components/ListComponent/ListComponent";
+
+import ClipboardCopier from "../../Components/ClipboardCopier/ClipboardCopier";
+import { useTheme } from "../../Theme/Index";
 import { ShortcutIconsProps } from "../../Models/SharedProps";
 import { Circles } from "../../assets/svgs";
-import { useTheme } from "../../Theme/Index";
-import ClipboardCopier from "../../Components/ClipboardCopier/ClipboardCopier";
 
 const Home: React.FC<any> = () => {
   const { palette } = useTheme();
@@ -138,7 +139,14 @@ const Home: React.FC<any> = () => {
         </View>
       </View>
       <View style={homeStyleSheet.homeTabContainer}>
-        <View style={{ justifyContent: "space-around", flexDirection: "row" }}>
+        <View
+          style={{
+            justifyContent: "space-around",
+            flexDirection: "row",
+            paddingTop: 8,
+            paddingBottom: 8,
+          }}
+        >
           {HomeIcons.map((row: any, index: number) => {
             return (
               <View

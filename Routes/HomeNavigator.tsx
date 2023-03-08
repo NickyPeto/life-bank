@@ -1,9 +1,10 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Home from "../Pages/Home/Home";
-import { useTheme } from "../Theme/Index";
+
 import { RootStackParamList } from "./AppNavigator";
 import ShortcutsNavigator from "./ShortcutsNavigator";
+import { useTheme } from "../Theme/Index";
 
 export default function HomeNavigator() {
   const { Screen, Navigator } =

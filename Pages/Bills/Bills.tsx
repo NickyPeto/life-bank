@@ -6,8 +6,9 @@ import ListComponent, {
   data,
 } from "../../Components/ListComponent/ListComponent";
 import ShortcutsTab from "../../Components/ShortcutsTab/ShortcutsTab";
-import { ShortcutIconsProps } from "../../Models/SharedProps";
+
 import { GeneralComponentsStylesheet } from "../../Stylesheets/GneralComponentsStylesheets";
+import { ShortcutIconsProps } from "../../Models/SharedProps";
 import { useTheme } from "../../Theme/Index";
 
 const Iconsets: ShortcutIconsProps[] = [
@@ -88,8 +89,9 @@ const Bills: React.FC<any> = () => {
             style={{
               fontSize: 18,
               textAlign: "left",
-              color: palette.headerMain,
-              paddingLeft: 16,
+              color: palette.contrast,
+              fontFamily: "SFUIDisplay-Bold",
+              paddingLeft: 10,
               paddingBottom: 10,
             }}
           >

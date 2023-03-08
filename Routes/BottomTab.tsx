@@ -25,6 +25,7 @@ export default function BottomTab() {
     },
     tabBarStyle: {
       height: 60,
+      borderTopWidth: 0,
     },
     tabBarActiveBackgroundColor: palette.bottomTab,
     tabBarActiveTintColor: palette.mainLight,

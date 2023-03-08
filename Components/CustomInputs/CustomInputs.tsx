@@ -13,7 +13,7 @@ type PlaceholderProps = {
 };
 
 export const CustomInputs: React.FC<PlaceholderProps> = (props) => {
-  const [visible, setVisible] = useState<boolean>(false);
+  const [visible, setVisible] = useState<boolean>(true);
   const { palette } = useTheme();
   const isSecure =
     props.placeholder === "Password" || props.placeholder?.includes("password");
@@ -39,10 +39,13 @@ export const CustomInputs: React.FC<PlaceholderProps> = (props) => {
           placeholder={props.placeholder}
           style={[
             GeneralComponentsStylesheet.inputStyle,
-            { backgroundColor: palette.mainUltraLight, color: palette.main },
+            {
+              backgroundColor: palette.mainUltraLight,
+              color: palette.typographyMain,
+            },
           ]}
           placeholderTextColor={palette.mainLighter}
-          secureTextEntry={visible}
+          secureTextEntry={isSecure && visible}
         />
         {isSecure ? (
           visible ? (
