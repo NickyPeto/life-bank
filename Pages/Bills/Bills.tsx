@@ -100,8 +100,9 @@ const Bills: React.FC<any> = () => {
             style={{
               fontSize: 18,
               textAlign: "left",
-              color: palette.headerMain,
-              paddingLeft: 16,
+              color: palette.contrast,
+              fontFamily: "SFUIDisplay-Bold",
+              paddingLeft: 10,
               paddingBottom: 10,
             }}
           >

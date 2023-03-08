@@ -1,9 +1,9 @@
 import { Icon } from "react-native-elements";
 import * as Clipboard from "expo-clipboard";
 
-import { useTheme } from "../../Theme/Index";
 import { useState } from "react";
 import { View, Text } from "react-native";
+import { useTheme } from "../../Theme/Index";
 
 const ClipboardCopier: React.FC<any> = ({ props }) => {
   const { palette } = useTheme();
