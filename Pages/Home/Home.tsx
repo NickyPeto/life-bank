@@ -12,10 +12,11 @@ import { homeStyleSheet } from "../../Stylesheets/HomeStylesheet";
 import ListComponent, {
   data,
 } from "../../Components/ListComponent/ListComponent";
-import { ShortcutIconsProps } from "../../Models/SharedProps";
-import { Circles } from "../../assets/svgs";
+
 import ClipboardCopier from "../../Components/ClipboardCopier/ClipboardCopier";
 import { useTheme } from "../../Theme/Index";
+import { ShortcutIconsProps } from "../../Models/SharedProps";
+import { Circles } from "../../assets/svgs";
 
 const Home: React.FC<any> = () => {
   const { palette } = useTheme();

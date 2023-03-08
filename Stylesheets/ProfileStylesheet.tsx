@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-import { useTheme } from "../Theme/Index";
 
 export const ProfileStylesheet = StyleSheet.create({
   container: {
