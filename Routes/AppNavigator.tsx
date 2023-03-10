@@ -1,57 +1,45 @@
 import React from "react";
+import { Text } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
-import { rootNavigationRef } from "./RootNavigationRef";
+import * as Linking from "expo-linking";
 
+import { rootNavigationRef } from "./RootNavigationRef";
 import Login from "../Pages/Login/Login";
 import BottomTab from "./BottomTab";
-import Bills from "../Pages/Bills/Bills";
-import Investments from "../Pages/Investments/Investments";
-import QrReader from "../Pages/QRReader/QRReader";
-import { light, main } from "../Stylesheets/ColorPallete";
 
 export type RootStackParamList = {
   Login: undefined;
   Tab: undefined;
+  HomeNavigator: undefined;
+  Home: undefined;
+  ShortcutsNav: undefined;
   Bills: undefined;
   Investments: undefined;
   QR: undefined;
+  Transactions: undefined;
 };
 
 const { Screen, Navigator } = createNativeStackNavigator<RootStackParamList>();
 
 export default function AppNavigator() {
+  const prefix = Linking.createURL("/");
   const linking = {
-    prefixes: ["lifebank://", "https://lifebank.com"],
+    prefixes: [prefix, "lifebank://", "https://lifebank.com"],
   };
+
   return (
-    <NavigationContainer linking={linking} ref={rootNavigationRef}>
+    <NavigationContainer
+      linking={linking}
+      ref={rootNavigationRef}
+      fallback={<Text>Loading...</Text>}
+    >
       <Navigator
         initialRouteName="Login"
         screenOptions={{ headerShown: false }}
       >
         <Screen name="Login" component={Login} />
         <Screen name="Tab" component={BottomTab} />
-        <Screen
-          options={{ headerShown: true }}
-          name="Bills"
-          component={Bills}
-        />
-        <Screen
-          options={{ headerShown: true }}
-          name="Investments"
-          component={Investments}
-        />
-        <Screen
-          options={{
-            headerShown: true,
-            headerTintColor: light,
-            headerTitleAlign: "center",
-            headerStyle: { backgroundColor: main },
-          }}
-          name="QR"
-          component={QrReader}
-        />
       </Navigator>
     </NavigationContainer>
   );

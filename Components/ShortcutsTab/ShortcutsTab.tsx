@@ -1,55 +1,43 @@
-import { View } from "react-native";
+import { View, Text, Pressable } from "react-native";
 import { Icon } from "react-native-elements";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { useNavigation } from "@react-navigation/native";
 
 import { GeneralComponentsStylesheet } from "../../Stylesheets/GneralComponentsStylesheets";
 
-//FIXME: fix typing
-const ShortcutsTab = () => {
-  type ShortcutStack = NativeStackNavigationProp<any, "Shortcuts">;
-  const navigation = useNavigation<ShortcutStack>();
+import { typographyStylesheet } from "../../Stylesheets/Typography";
+import { ShortcutIconsProps } from "../../Models/SharedProps";
+import { useTheme } from "../../Theme/Index";
 
-  navigation.getParent();
-
+const ShortcutsTab: React.FC<ShortcutIconsProps> = (
+  props: ShortcutIconsProps
+) => {
+  const { palette } = useTheme();
   return (
-    <View style={GeneralComponentsStylesheet.shortcutTabContainer}>
-      <View style={GeneralComponentsStylesheet.shortcutTabIconWrapper}>
+    <View
+      style={[
+        GeneralComponentsStylesheet.shortcutTabIconWrapper,
+        { backgroundColor: palette.shortcutsBtn },
+      ]}
+    >
+      <Pressable onPress={() => props.onPress()}>
         <Icon
-          name="shopping-outline"
-          type="material-community"
+          name={props.name}
+          type={props.type}
           size={40}
-          color="#8b31fd"
-          onPress={() => navigation.navigate("Transactions")}
+          color={palette.icon}
         />
-      </View>
-      <View style={GeneralComponentsStylesheet.shortcutTabIconWrapper}>
-        <Icon
-          name="receipt-outline"
-          type="ionicon"
-          size={40}
-          color="#8b31fd"
-          onPress={() => navigation.navigate("Bills")}
-        />
-      </View>
-      <View style={GeneralComponentsStylesheet.shortcutTabIconWrapper}>
-        <Icon
-          name="chart-line-variant"
-          type="material-community"
-          size={40}
-          color="#8b31fd"
-          onPress={() => navigation.navigate("Investments")}
-        />
-      </View>
-      <View style={GeneralComponentsStylesheet.shortcutTabIconWrapper}>
-        <Icon
-          name="qr-code-outline"
-          type="ionicon"
-          size={40}
-          color="#8b31fd"
-          onPress={() => navigation.navigate("QR")}
-        />
-      </View>
+        {props.title ? (
+          <Text
+            style={[
+              typographyStylesheet.shortcutTitle,
+              {
+                color: palette.icon,
+              },
+            ]}
+          >
+            {props?.title}
+          </Text>
+        ) : null}
+      </Pressable>
     </View>
   );
 };

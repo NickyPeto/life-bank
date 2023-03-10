@@ -1,24 +1,26 @@
-import { View, Text } from "react-native";
+import { ScrollView } from "react-native";
+
+import ChartComponent from "../../Components/ChartComponent/ChartComponent";
+import InvestmentsBottomTab from "../../Components/InvestmentsBottomTab/InvestmentsBottomTab";
+import { useTheme } from "../../Theme/Index";
 
 const Investments: React.FC<any> = () => {
+  const { palette } = useTheme();
   return (
-    <View
-      style={{
-        display: "flex",
-        flex: 1,
-        backgroundColor: "green",
-        justifyContent: "center",
-        alignContent: "center",
-      }}
-    >
-      <Text
-        style={{
-          textAlign: "center",
+    <>
+      <ScrollView
+        keyboardShouldPersistTaps={"always"}
+        style={{ display: "flex" }}
+        contentContainerStyle={{
+          justifyContent: "center",
+          flex: 1,
+          backgroundColor: palette.mainTint,
         }}
       >
-        Investments
-      </Text>
-    </View>
+        <ChartComponent />
+        <InvestmentsBottomTab />
+      </ScrollView>
+    </>
   );
 };
 

@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-import { light, main } from "./ColorPallete";
 
 export const tabComponentStylesheet = StyleSheet.create({
   tabMainCointainer: {
@@ -7,12 +6,12 @@ export const tabComponentStylesheet = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: main,
+    // backgroundColor: palette.main,
     borderRadius: 30,
   },
   tabButtonRight: {
-    backgroundColor: light,
-    color: main,
+    // backgroundColor: palette.light,
+    // color: palette.main,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -21,8 +20,8 @@ export const tabComponentStylesheet = StyleSheet.create({
     height: 40,
   },
   tabButtonLeft: {
-    backgroundColor: light,
-    color: main,
+    // backgroundColor: palette.light,
+    // color: palette.main,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -35,8 +34,8 @@ export const tabComponentStylesheet = StyleSheet.create({
     alignItems: "center",
     textAlign: "center",
     borderBottomLeftRadius: 20,
-    backgroundColor: main,
-    color: light,
+    // backgroundColor: palette.main,
+    // color: palette.light,
     height: 40,
   },
   inactiveTabButtonLeft: {
@@ -45,8 +44,8 @@ export const tabComponentStylesheet = StyleSheet.create({
     textAlign: "center",
     borderTopLeftRadius: 20,
     borderBottomRightRadius: 20,
-    backgroundColor: main,
-    color: light,
+    // backgroundColor: palette.main,
+    // color: palette.light,
     height: 40,
   },
 });

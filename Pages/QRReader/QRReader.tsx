@@ -1,15 +1,18 @@
-import { Link } from "@react-navigation/native";
 import { BarCodeScanner } from "expo-barcode-scanner";
+import * as Linking from "expo-linking";
 
 import { useEffect, useState } from "react";
-import { View, Text } from "react-native";
+import { View, Text, Pressable } from "react-native";
 import { Button } from "react-native-elements";
-import { mainDark } from "../../Stylesheets/ColorPallete";
+
 import { GeneralComponentsStylesheet } from "../../Stylesheets/GneralComponentsStylesheets";
+import { useTheme } from "../../Theme/Index";
 
 const QrReader: React.FC<any> = () => {
   const [hasPermission, setHasPermission] = useState<boolean>(false);
   const [scanned, setScanned] = useState(false);
+  const [data, setData] = useState<any>([]);
+  const { palette } = useTheme();
 
   useEffect(() => {
     const getBarCodeScannerPermissions = async () => {
@@ -22,11 +25,7 @@ const QrReader: React.FC<any> = () => {
 
   const handleBarCodeScanned = ({ type, data }: any) => {
     setScanned(true);
-    alert(
-      `Bar code with type ${type} and data ${(
-        <Link to={`https://${data}`}>Got to {data}</Link>
-      )} has been scanned!`
-    );
+    setData(data);
   };
 
   if (hasPermission === null) {
@@ -43,13 +42,13 @@ const QrReader: React.FC<any> = () => {
         flex: 1,
         justifyContent: "center",
         alignContent: "center",
+        backgroundColor: palette.mainTint,
       }}
     >
       <View
         style={{
           display: "flex",
           justifyContent: "center",
-          padding: 40,
           alignContent: "center",
         }}
       >
@@ -57,16 +56,15 @@ const QrReader: React.FC<any> = () => {
           style={{
             display: "flex",
             justifyContent: "center",
-            // padding: 10,
             borderRadius: 10,
             borderWidth: 18,
-            borderColor: mainDark,
+            borderColor: palette.mainDark,
             alignContent: "center",
             backgroundColor: "transparent",
           }}
         >
           <BarCodeScanner
-            style={{ height: 300, width: 300 }}
+            style={{ height: 300, width: "auto" }}
             onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
           />
         </View>
@@ -77,16 +75,59 @@ const QrReader: React.FC<any> = () => {
           <View
             style={{
               display: "flex",
-              alignContent: "flex-end",
+              alignContent: "center",
               justifyContent: "center",
-              marginTop: 20,
             }}
           >
-            <Button
-              buttonStyle={GeneralComponentsStylesheet.buttonMain}
-              title={"Tap to Scan"}
-              onPress={() => setScanned(false)}
-            />
+            <View
+              style={{
+                position: "absolute",
+                right: 0,
+                left: 0,
+                bottom: 0,
+                borderRadius: 10,
+                display: "flex",
+                backgroundColor: palette.mainUltraLight,
+                justifyContent: "space-evenly",
+                flexDirection: "column",
+                height: 360,
+                width: "100%",
+                overflow: "visible",
+                padding: 20,
+              }}
+            >
+              <Pressable onPress={() => Linking.openURL(data)}>
+                <Text
+                  style={{
+                    textAlign: "center",
+                    fontFamily: "SFUIDisplay-Semibold",
+                    fontSize: 20,
+                  }}
+                >
+                  This link will take you to:
+                </Text>
+                <Text
+                  style={{
+                    textAlign: "center",
+                    color: palette.mainLight,
+                    fontSize: 20,
+                    fontFamily: "SFUIDisplay-Light",
+                  }}
+                >
+                  {data}
+                </Text>
+              </Pressable>
+              <Button
+                buttonStyle={[
+                  GeneralComponentsStylesheet.buttonMain,
+                  {
+                    backgroundColor: palette.main,
+                  },
+                ]}
+                title={"Tap to scan again"}
+                onPress={() => setScanned(false)}
+              />
+            </View>
           </View>
         </>
       ) : null}

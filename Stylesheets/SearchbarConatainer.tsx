@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-import { lightGray } from "./ColorPallete";
 
 export const SearchbarStylesheet = StyleSheet.create({
   container: {
@@ -12,7 +11,7 @@ export const SearchbarStylesheet = StyleSheet.create({
     marginLeft: 20,
   },
   inputContainerStyle: {
-    backgroundColor: lightGray,
+    // backgroundColor: palette.lightGray,
     borderBottomWidth: 0,
     borderRadius: 10,
     opacity: 0.6,

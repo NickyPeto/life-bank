@@ -1,25 +1,34 @@
-import { View, Text } from "react-native";
+import { View, Text, ScrollView, StatusBar } from "react-native";
 
-import { GeneralComponentsStylesheet } from "../../Stylesheets/GneralComponentsStylesheets";
-import { FormModel } from "../../Models/FormModels";
-import { main } from "../../Stylesheets/ColorPallete";
 import CustomInputs from "../CustomInputs/CustomInputs";
+import { FormModel } from "../../Models/FormModels";
+import { useTheme } from "../../Theme/Index";
 
 const Form: React.FC<FormModel> = ({ placeholders, extraData }) => {
-  //FIXME: buscar un nombre mejor.
-  const array = Object.keys(placeholders);
+  const inputPlaceholders = Object.values(placeholders);
+  const { palette } = useTheme();
+  //TODO: Move styles to stylesheeyt
 
   return (
-    <View style={GeneralComponentsStylesheet.formContainer}>
-      {array.map((values) => {
+    <ScrollView
+      style={{
+        flex: 1,
+        paddingTop: StatusBar.currentHeight,
+        backgroundColor: palette.mainTint,
+      }}
+      contentContainerStyle={{
+        paddingVertical: 60,
+        justifyContent: "center",
+      }}
+    >
+      {inputPlaceholders.map((values) => {
         return (
           <View key={values}>
             <CustomInputs
               placeholder={values}
               icon={{
-                name: "eye-off-outline",
                 type: "ionicon",
-                color: main,
+                color: palette.main,
                 marginRight: 20,
               }}
             />
@@ -39,7 +48,7 @@ const Form: React.FC<FormModel> = ({ placeholders, extraData }) => {
           Forgot your password?
         </Text>
       )}
-    </View>
+    </ScrollView>
   );
 };
 

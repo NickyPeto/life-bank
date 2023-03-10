@@ -1,16 +1,16 @@
 import { StyleSheet } from "react-native";
-import { main } from "./ColorPallete";
 
 export const homeStyleSheet = StyleSheet.create({
   homeHeader: {
     display: "flex",
     flex: 1,
-    backgroundColor: main,
+    // backgroundColor: palette.main,
     justifyContent: "space-evenly",
     alignItems: "flex-start",
     flexDirection: "column",
+    paddingRight: 20,
     paddingLeft: 20,
-    paddingTop: 20,
+    paddingTop: 48,
   },
   homeTabContainer: {
     display: "flex",
@@ -26,8 +26,6 @@ export const homeStyleSheet = StyleSheet.create({
     width: "100%",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingRight: 40,
-    paddingTop: 40,
   },
   homeSimpleColumn: {
     display: "flex",
@@ -38,7 +36,6 @@ export const homeStyleSheet = StyleSheet.create({
     flexDirection: "row",
     width: "100%",
     justifyContent: "space-between",
-    alignItems: "flex-end",
-    paddingRight: 40,
+    alignItems: "flex-start",
   },
 });
