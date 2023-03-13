@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import { View, Text } from "react-native";
 import * as SecureStore from "expo-secure-store";
 
-import ListComponent, {
-  data,
-} from "../../Components/ListComponent/ListComponent";
+import ListComponent from "../../Components/ListComponent/ListComponent";
 import ShortcutsTab from "../../Components/ShortcutsTab/ShortcutsTab";
 
 import { GeneralComponentsStylesheet } from "../../Stylesheets/GneralComponentsStylesheets";
 import { ShortcutIconsProps } from "../../Models/SharedProps";
 import { useTheme } from "../../Theme/Index";
+import { REACT_APP_URI } from "@env";
+import axios from "axios";
 
 const Iconsets: ShortcutIconsProps[] = [
   {
@@ -64,9 +64,20 @@ const Iconsets: ShortcutIconsProps[] = [
 
 const Bills: React.FC<any> = () => {
   const [row, setRow] = useState<ShortcutIconsProps[]>([]);
+  const [dataset, setDataset] = useState<any>([]);
   const { palette } = useTheme();
 
+  const testFetch = async () => {
+    try {
+      const res = await axios.get(`${REACT_APP_URI}/bills`);
+      setDataset(res.data.transactions);
+    } catch (e: any) {
+      console.log(e.message);
+    }
+  };
+
   useEffect(() => {
+    testFetch();
     setRow(Iconsets);
   }, []);
 
@@ -123,7 +134,11 @@ const Bills: React.FC<any> = () => {
       </View>
 
       <View style={{ display: "flex", flex: 1 }}>
-        <ListComponent props={data} hasHeader={true} header={"Bills history"} />
+        <ListComponent
+          props={dataset}
+          hasHeader={true}
+          header={"Bills history"}
+        />
       </View>
     </View>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, SafeAreaView, Button } from "react-native";
 import { Icon } from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
@@ -9,22 +9,33 @@ import { GeneralComponentsStylesheet } from "../../Stylesheets/GneralComponentsS
 import ShortcutsTab from "../../Components/ShortcutsTab/ShortcutsTab";
 import { typographyStylesheet } from "../../Stylesheets/Typography";
 import { homeStyleSheet } from "../../Stylesheets/HomeStylesheet";
-import ListComponent, {
-  data,
-} from "../../Components/ListComponent/ListComponent";
+import ListComponent from "../../Components/ListComponent/ListComponent";
 
 import ClipboardCopier from "../../Components/ClipboardCopier/ClipboardCopier";
 import { useTheme } from "../../Theme/Index";
 import { ShortcutIconsProps } from "../../Models/SharedProps";
 import { Circles } from "../../assets/svgs";
+import axios from "axios";
+import { REACT_APP_URI } from "@env";
 
 const Home: React.FC<any> = () => {
   const { palette } = useTheme();
   const [copiedText, setCopiedText] = useState<string>("");
+  const [dataset, setDataset] = useState<any>([]);
 
   const copyToClipboard = async (text: string) => {
     await Clipboard.setStringAsync(text);
     fetchCopiedText();
+  };
+
+  const testFetch = async () => {
+    try {
+      const res = await axios.get(`${REACT_APP_URI}/transactions`);
+      console.log(res.data.transactions);
+      res.data.transactions.map((item: any) => setDataset(item.data.history));
+    } catch (e: any) {
+      console.log(e.message);
+    }
   };
 
   const fetchCopiedText = async () => {
@@ -65,6 +76,10 @@ const Home: React.FC<any> = () => {
       title: "QR",
     },
   ];
+
+  useEffect(() => {
+    testFetch();
+  }, []);
 
   return (
     <SafeAreaView
@@ -159,7 +174,7 @@ const Home: React.FC<any> = () => {
           })}
         </View>
         <ListComponent
-          props={data}
+          props={dataset}
           hasHeader={true}
           header={"Latest Transactions"}
         />

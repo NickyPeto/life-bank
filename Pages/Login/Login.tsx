@@ -30,10 +30,8 @@ const Login = () => {
   const navigation = useNavigation<HomeStack>();
 
   const testFetch = async (data: any) => {
-    console.log(data);
     try {
       const res = await axios.post(`${REACT_APP_URI}/login`, { data });
-      console.log(res.data);
     } catch (e: any) {
       console.log(e.message);
     }

@@ -7,6 +7,8 @@ import * as Linking from "expo-linking";
 import { rootNavigationRef } from "./RootNavigationRef";
 import Login from "../Pages/Login/Login";
 import BottomTab from "./BottomTab";
+import { Provider } from "react-redux";
+import store from "../Redux/RootState";
 
 export type RootStackParamList = {
   Login: undefined;
@@ -29,18 +31,20 @@ export default function AppNavigator() {
   };
 
   return (
-    <NavigationContainer
-      linking={linking}
-      ref={rootNavigationRef}
-      fallback={<Text>Loading...</Text>}
-    >
-      <Navigator
-        initialRouteName="Login"
-        screenOptions={{ headerShown: false }}
+    <Provider store={store}>
+      <NavigationContainer
+        linking={linking}
+        ref={rootNavigationRef}
+        fallback={<Text>Loading...</Text>}
       >
-        <Screen name="Login" component={Login} />
-        <Screen name="Tab" component={BottomTab} />
-      </Navigator>
-    </NavigationContainer>
+        <Navigator
+          initialRouteName="Login"
+          screenOptions={{ headerShown: false }}
+        >
+          <Screen name="Login" component={Login} />
+          <Screen name="Tab" component={BottomTab} />
+        </Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }
