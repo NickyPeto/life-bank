@@ -30,10 +30,8 @@ const Login = () => {
   const navigation = useNavigation<HomeStack>();
 
   const testFetch = async (data: any) => {
-    console.log(data);
     try {
       const res = await axios.post(`${REACT_APP_URI}/login`, { data });
-      console.log(res.data);
     } catch (e: any) {
       console.log(e.message);
     }
@@ -83,27 +81,23 @@ const Login = () => {
       >
         <>
           {login ? (
-            <>
-              <View
-                style={[
-                  LoginStylesheet.logoContainer,
-                  { backgroundColor: palette.main },
-                ]}
-              >
-                <View style={LoginStylesheet.logo}>
-                  <SvgLogo height={"100%"} width={"100%"} fill={"#fff"} />
-                </View>
+            <View
+              style={[
+                LoginStylesheet.logoContainer,
+                { backgroundColor: palette.main },
+              ]}
+            >
+              <View style={LoginStylesheet.logo}>
+                <SvgLogo height={"100%"} width={"100%"} fill={"#fff"} />
               </View>
               <TabComponent {...tabdata} />
               <Form {...loginData}></Form>
-            </>
+            </View>
           ) : (
-            <>
-              <View style={LoginStylesheet.formWrapper}>
-                <TabComponent {...tabdata} />
-                <Form {...registerData} />
-              </View>
-            </>
+            <View style={LoginStylesheet.formWrapper}>
+              <TabComponent {...tabdata} />
+              <Form {...registerData} />
+            </View>
           )}
         </>
         <CustomButton

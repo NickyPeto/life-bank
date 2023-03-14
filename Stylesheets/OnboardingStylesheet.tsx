@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-
 export const OnboardingStylesheet = StyleSheet.create({
   container: {
     display: "flex",

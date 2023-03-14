@@ -4,7 +4,6 @@ import { Icon } from "react-native-elements";
 import { typographyStylesheet } from "../../Stylesheets/Typography";
 import ShortcutsTab from "../../Components/ShortcutsTab/ShortcutsTab";
 import { ProfileStylesheet } from "../../Stylesheets/ProfileStylesheet";
-
 import { useState } from "react";
 import { GeneralComponentsStylesheet } from "../../Stylesheets/GneralComponentsStylesheets";
 
