@@ -43,8 +43,6 @@ export const LoginStylesheet = StyleSheet.create({
   },
   formWrapper: {
     display: "flex",
-    flex: 2,
-    paddingTop: "20%",
     overflow: "scroll",
   },
 });

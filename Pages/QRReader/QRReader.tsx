@@ -1,4 +1,4 @@
-import { BarCodeScanner } from "expo-barcode-scanner";
+import { CameraView, Camera } from "expo-camera/next";
 import * as Linking from "expo-linking";
 
 import { useEffect, useState } from "react";
@@ -15,12 +15,12 @@ const QrReader: React.FC<any> = () => {
   const { palette } = useTheme();
 
   useEffect(() => {
-    const getBarCodeScannerPermissions = async () => {
-      const { status } = await BarCodeScanner.requestPermissionsAsync();
+    const getCameraPermissions = async () => {
+      const { status } = await Camera.requestCameraPermissionsAsync();
       setHasPermission(status === "granted");
     };
 
-    getBarCodeScannerPermissions();
+    getCameraPermissions();
   }, []);
 
   const handleBarCodeScanned = ({ type, data }: any) => {
@@ -63,9 +63,12 @@ const QrReader: React.FC<any> = () => {
             backgroundColor: "transparent",
           }}
         >
-          <BarCodeScanner
+          <CameraView
             style={{ height: 300, width: "auto" }}
-            onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+            barcodeScannerSettings={{
+              barcodeTypes: ["qr", "pdf417"],
+            }}
+            onBarcodeScanned={scanned ? undefined : handleBarCodeScanned}
           />
         </View>
       </View>

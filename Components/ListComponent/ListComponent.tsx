@@ -8,7 +8,11 @@ import { useTheme } from "../../Theme/Index";
 //TODO: type this props explicitly
 const ListComponent: React.FC<any> = (props) => {
   const { palette } = useTheme();
-  console.log(props);
+
+  // useEffect(() => {
+  //   cachedArrayData;
+  //   console.log(dataArray);
+  // }, []);
 
   return (
     <View
@@ -31,15 +35,20 @@ const ListComponent: React.FC<any> = (props) => {
           </>
         ) : null}
       </View>
-      <FlatList
-        data={props.props}
-        style={{ flex: 1 }}
-        contentContainerStyle={{
-          backgroundColor: "transparent",
-        }}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={(item) => <ListItem {...item} />}
-      />
+      {props.props && props.length > 1 && (
+        <FlatList
+          data={props.props}
+          style={{ flex: 1 }}
+          contentContainerStyle={{
+            backgroundColor: "transparent",
+          }}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={(item) => {
+            console.log(item, "in flatlist");
+            return <ListItem {...item} />;
+          }}
+        />
+      )}
     </View>
   );
 };

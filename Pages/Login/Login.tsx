@@ -15,7 +15,6 @@ import { useTheme } from "../../Theme/Index";
 import { CustomTabProps } from "../../Models/SharedProps";
 import { FormModel, LoginModel } from "../../Models/FormModels";
 import { SvgLogo } from "../../assets/svgs";
-import { REACT_APP_URI } from "@env";
 
 const Login = () => {
   const [login, setLogin] = useState<boolean>(true);
@@ -31,7 +30,11 @@ const Login = () => {
 
   const testFetch = async (data: any) => {
     try {
-      const res = await axios.post(`${REACT_APP_URI}/login`, { data });
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/login`, {
+        data,
+      });
+      console.log(res);
+      return res;
     } catch (e: any) {
       console.log(e.message);
     }
@@ -74,7 +77,8 @@ const Login = () => {
       <View
         style={{
           display: "flex",
-          flex: 1,
+          // flex: 1,
+          height: "100%",
           flexDirection: "column",
           justifyContent: "flex-end",
         }}

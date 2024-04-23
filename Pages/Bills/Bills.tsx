@@ -8,7 +8,6 @@ import ShortcutsTab from "../../Components/ShortcutsTab/ShortcutsTab";
 import { GeneralComponentsStylesheet } from "../../Stylesheets/GneralComponentsStylesheets";
 import { ShortcutIconsProps } from "../../Models/SharedProps";
 import { useTheme } from "../../Theme/Index";
-import { REACT_APP_URI } from "@env";
 import axios from "axios";
 
 const Iconsets: ShortcutIconsProps[] = [
@@ -69,7 +68,7 @@ const Bills: React.FC<any> = () => {
 
   const testFetch = async () => {
     try {
-      const res = await axios.get(`${REACT_APP_URI}/bills`);
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/bills`);
       setDataset(res.data.transactions);
     } catch (e: any) {
       console.log(e.message);

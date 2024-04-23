@@ -46,7 +46,7 @@ export const GeneralComponentsStylesheet = StyleSheet.create({
     padding: 20,
     fontWeight: "700",
     borderColor: "transparent",
-    underlineColorAndroid: "transparent",
+    // underlineColorAndroid: "transparent",
     fontSize: 16,
     opacity: 0.7,
   },

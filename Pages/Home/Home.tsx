@@ -16,7 +16,6 @@ import { useTheme } from "../../Theme/Index";
 import { ShortcutIconsProps } from "../../Models/SharedProps";
 import { Circles } from "../../assets/svgs";
 import axios from "axios";
-import { REACT_APP_URI } from "@env";
 
 const Home: React.FC<any> = () => {
   const { palette } = useTheme();
@@ -30,11 +29,20 @@ const Home: React.FC<any> = () => {
 
   const testFetch = async () => {
     try {
-      const res = await axios.get(`${REACT_APP_URI}/transactions`);
-      console.log(res.data.transactions);
-      res.data.transactions.map((item: any) => setDataset(item.data.history));
+      console.log(process.env.REACT_APP_API_URL);
+      const res = await axios.get(
+        `${process.env.REACT_APP_API_URL}/transactions`
+      );
+      setDataset((prev: any[]) => {
+        // Map over the transactions and extract history
+        const newHistoryArray = res.data.transactions.map(
+          (item: any) => item.data.history
+        );
+        // Concatenate the new history array with the previous state
+        return [...prev, ...newHistoryArray];
+      });
     } catch (e: any) {
-      console.log(e.message);
+      console.log(e, "is the error form api");
     }
   };
 
@@ -79,6 +87,7 @@ const Home: React.FC<any> = () => {
 
   useEffect(() => {
     testFetch();
+    console.log(dataset, "is Dataset");
   }, []);
 
   return (
@@ -173,11 +182,13 @@ const Home: React.FC<any> = () => {
             );
           })}
         </View>
-        <ListComponent
-          props={dataset}
-          hasHeader={true}
-          header={"Latest Transactions"}
-        />
+        {dataset.length > 1 && (
+          <ListComponent
+            props={dataset}
+            hasHeader={true}
+            header={"Latest Transactions"}
+          />
+        )}
       </View>
     </SafeAreaView>
   );

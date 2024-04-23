@@ -32,7 +32,7 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {},
-  extraReducers: {},
+  extraReducers: () => {},
 });
 
 const userReducer = userSlice.reducer;

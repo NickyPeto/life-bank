@@ -14,18 +14,23 @@ const Form: React.FC<FormModel> = ({ placeholders, extraData }) => {
   return (
     <ScrollView
       style={{
-        flex: 1,
         paddingTop: StatusBar.currentHeight,
         backgroundColor: palette.mainTint,
+        display: "flex",
       }}
       contentContainerStyle={{
-        paddingVertical: 60,
         justifyContent: "center",
       }}
     >
       {inputPlaceholders.map((values) => {
         return (
-          <View key={values}>
+          <View
+            key={values}
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+            }}
+          >
             <CustomInputs
               placeholder={values}
               icon={{
