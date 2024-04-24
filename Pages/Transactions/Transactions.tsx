@@ -4,10 +4,23 @@ import SearchBar from "../../Components/Searchar/SearchBar";
 import ListComponent from "../../Components/ListComponent/ListComponent";
 import { GeneralComponentsStylesheet } from "../../Stylesheets/GneralComponentsStylesheets";
 import { useTheme } from "../../Theme/Index";
+import { useEffect } from "react";
+import { RootState } from "../../Redux/types";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchTransactions } from "../../Redux/Actions";
 
 const Transactions = (props: any) => {
   const { palette } = useTheme();
-  console.log(props.route.params);
+  const dispatch = useDispatch<any>();
+  const transactionsData = useSelector(
+    (state: RootState) => state.transactions
+  );
+
+  useEffect(() => {
+    dispatch(fetchTransactions());
+    console.log(transactionsData, " in home");
+  }, [dispatch]);
+
   return (
     <View
       style={[
@@ -16,8 +29,8 @@ const Transactions = (props: any) => {
       ]}
     >
       <SearchBar />
-      {props.route.params.props && (
-        <ListComponent props={props.route.params.props} hasHeader={false} />
+      {transactionsData && (
+        <ListComponent props={transactionsData} hasHeader={false} />
       )}
     </View>
   );

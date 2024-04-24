@@ -5,7 +5,11 @@ import {
   Transactions,
   UserState,
 } from "./types";
-import { fetchTransactionFailure, fetchTransactionSuccess } from "./Actions";
+import {
+  fetchTransactionFailure,
+  fetchTransactions,
+  fetchTransactionSuccess,
+} from "./Actions";
 
 const userInitialState: UserState = {
   loading: false,
@@ -39,15 +43,13 @@ const userSlice = createSlice({
 const transactionsSlice = createSlice({
   name: "transactions",
   initialState: transactionInitialState,
-  reducers: {
-    [FETCH_TRANSACTIONS_SUCCESS]: (
-      state,
-      action: PayloadAction<Transactions[]>
-    ) => {
-      console.log(action.payload, state, "in reducer ");
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(fetchTransactions.fulfilled, (state, action) => {
+      // Update state with fetched transactions when async operation is successful
       return action.payload;
-    },
-    [FETCH_TRANSACTIONS_FAILURE]: (state, action: PayloadAction<string>) => {},
+    });
+    // Handle other action types if needed
   },
 });
 

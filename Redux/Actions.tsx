@@ -8,6 +8,7 @@ import {
   Transactions,
 } from "./types";
 import { getTransactions } from "../api/GetTransactions";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchTransactionSuccess = (
   transactionData: Transactions[]
@@ -26,13 +27,11 @@ export const fetchTransactionFailure = (
   payload: error,
 });
 
-export const fetchTransactions =
-  (): AppThunk<void> => async (dispatch, getState: () => RootState) => {
-    try {
-      const transactions = await getTransactions();
-      dispatch(fetchTransactionSuccess(transactions as Transactions[]));
-      console.log(getState().transactions, "in thunk");
-    } catch (e: unknown) {
-      fetchTransactionFailure(e as string);
-    }
-  };
+export const fetchTransactions = createAsyncThunk("transactions", () => {
+  try {
+    const transactions = getTransactions();
+    return transactions;
+  } catch (e: unknown) {
+    fetchTransactionFailure(e as string);
+  }
+});
