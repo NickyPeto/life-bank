@@ -42,7 +42,7 @@ const Iconsets: ShortcutIconsProps[] = [
     title: "Water",
   },
   {
-    name: "md-bus-outline",
+    name: "bus-outline",
     type: "ionicon",
     onPress: () => alert("Fire"),
     title: "Transport",
@@ -69,7 +69,14 @@ const Bills: React.FC<any> = () => {
   const testFetch = async () => {
     try {
       const res = await axios.get(`${process.env.REACT_APP_API_URL}/bills`);
-      setDataset(res.data.transactions);
+      setDataset((prev: any[]) => {
+        // Map over the transactions and extract history
+        const newHistoryArray = res.data.transactions.map(
+          (item: any) => item.data.history
+        );
+        // Concatenate the new history array with the previous state
+        return [...prev, ...newHistoryArray];
+      });
     } catch (e: any) {
       console.log(e.message);
     }

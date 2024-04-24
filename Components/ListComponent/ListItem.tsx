@@ -7,7 +7,7 @@ import React from "react";
 //TODO: type this props explicitly
 const ListItem: React.FC<any> = ({ item }) => {
   const { palette } = useTheme();
-  console.log(item, "in item");
+  console.log(item, "is in item");
 
   return (
     <Pressable
@@ -24,7 +24,7 @@ const ListItem: React.FC<any> = ({ item }) => {
               { color: palette.typographyMain },
             ]}
           >
-            {item.name}
+            {item.name ? item.name : ""}
           </Text>
           <Text
             style={[
@@ -54,13 +54,6 @@ const ListItem: React.FC<any> = ({ item }) => {
           </Text>
         </View>
       </React.Fragment>
-      {/* {dataArray &&
-        dataArray.map((item: any, index: number) => {
-          console.log(item.amount, "in map");
-          return (
-   
-          );
-        })} */}
     </Pressable>
   );
 };

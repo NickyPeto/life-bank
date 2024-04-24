@@ -1,14 +1,13 @@
 import { View } from "react-native";
 
 import SearchBar from "../../Components/Searchar/SearchBar";
-import ListComponent, {
-  data,
-} from "../../Components/ListComponent/ListComponent";
+import ListComponent from "../../Components/ListComponent/ListComponent";
 import { GeneralComponentsStylesheet } from "../../Stylesheets/GneralComponentsStylesheets";
 import { useTheme } from "../../Theme/Index";
 
 const Transactions = (props: any) => {
   const { palette } = useTheme();
+  console.log(props.route.params);
   return (
     <View
       style={[
@@ -17,7 +16,9 @@ const Transactions = (props: any) => {
       ]}
     >
       <SearchBar />
-      <ListComponent props={data} hasHeader={false} />
+      {props.route.params.props && (
+        <ListComponent props={props.route.params.props} hasHeader={false} />
+      )}
     </View>
   );
 };

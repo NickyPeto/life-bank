@@ -1,21 +1,13 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { combineReducers, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import {
+  FETCH_TRANSACTIONS_FAILURE,
+  FETCH_TRANSACTIONS_SUCCESS,
+  Transactions,
+  UserState,
+} from "./types";
+import { fetchTransactionFailure, fetchTransactionSuccess } from "./Actions";
 
-interface UserInfo {
-  name: string;
-  surname: string;
-  balance?: number;
-  transactionsHistory?: [];
-}
-
-interface UserState {
-  loading: boolean;
-  userInfo: UserInfo; // for user object
-  userToken: string | null; // for storing the JWT
-  error: string | null;
-  success: boolean; // for monitoring the registration process.
-}
-
-const initialState: UserState = {
+const userInitialState: UserState = {
   loading: false,
   userInfo: {
     name: "",
@@ -28,13 +20,43 @@ const initialState: UserState = {
   success: false,
 };
 
+const transactionInitialState: Transactions[] = [
+  {
+    name: "",
+    date: "",
+    description: "",
+    amount: "",
+  },
+];
+
 const userSlice = createSlice({
   name: "user",
-  initialState,
+  initialState: userInitialState,
   reducers: {},
   extraReducers: () => {},
 });
 
-const userReducer = userSlice.reducer;
+const transactionsSlice = createSlice({
+  name: "transactions",
+  initialState: transactionInitialState,
+  reducers: {
+    [FETCH_TRANSACTIONS_SUCCESS]: (
+      state,
+      action: PayloadAction<Transactions[]>
+    ) => {
+      console.log(action.payload, state, "in reducer ");
+      return action.payload;
+    },
+    [FETCH_TRANSACTIONS_FAILURE]: (state, action: PayloadAction<string>) => {},
+  },
+});
 
-export default userReducer;
+const userReducer = userSlice.reducer;
+const transactionsReducer = transactionsSlice.reducer;
+
+const rootReducer = combineReducers({
+  user: userReducer,
+  transactions: transactionsReducer,
+});
+
+export default rootReducer;
