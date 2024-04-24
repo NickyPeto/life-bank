@@ -26,8 +26,8 @@ const SearchBar: React.FC<any> = (props) => {
         }}
       />
       <Icon
-        name="ios-filter"
-        type="ionicon"
+        name="filter"
+        type="feather"
         color={palette.main}
         style={{
           display: "flex",

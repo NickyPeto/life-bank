@@ -3,6 +3,8 @@ import { useFonts } from "expo-font";
 
 import AppNavigator from "./Routes/AppNavigator";
 import { ThemeProvider } from "./Theme/Index";
+import { Provider } from "react-redux";
+import store from "./Redux/RootState";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -14,8 +16,10 @@ export default function App() {
     "SFUIDisplay-Semibold": require("./assets/font/SFUIDisplay-Semibold.otf"),
   });
   return (
-    <ThemeProvider>
-      <AppNavigator />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider>
+        <AppNavigator />
+      </ThemeProvider>
+    </Provider>
   );
 }
