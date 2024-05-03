@@ -1,10 +1,8 @@
 import {
-  AppThunk,
   FETCH_TRANSACTIONS_FAILURE,
   FETCH_TRANSACTIONS_SUCCESS,
   FetchTransactionFailureAction,
   FetchTransactionSuccessAction,
-  RootState,
   Transactions,
 } from "./types";
 import { getTransactions } from "../api/GetTransactions";

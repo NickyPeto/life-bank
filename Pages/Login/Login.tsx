@@ -40,9 +40,13 @@ const Login = () => {
     }
   };
   function redirect(data: any) {
-    testFetch(data).then(() => {
-      navigation.navigate("Tab");
-    });
+    console.log(data, "in redirect fn");
+    //commenting out the function below until API is fixed
+
+    navigation.navigate("Tab");
+    // testFetch(data).then(() => {
+    //   navigation.navigate("Tab");
+    // });
   }
 
   //Mock data, this will be changed

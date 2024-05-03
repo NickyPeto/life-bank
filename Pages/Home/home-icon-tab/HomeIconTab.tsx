@@ -4,7 +4,6 @@ import { useNavigation } from "@react-navigation/native";
 import { View } from "react-native";
 import { GeneralComponentsStylesheet } from "../../../Stylesheets/GneralComponentsStylesheets";
 import ShortcutsTab from "../../../Components/ShortcutsTab/ShortcutsTab";
-import { homeStyleSheet } from "../../../Stylesheets/HomeStylesheet";
 
 const HomeIconTab = (props: any) => {
   //This stack navigator is going to allow us to navigate on the custom tool bar.
