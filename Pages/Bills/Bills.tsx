@@ -9,6 +9,7 @@ import { GeneralComponentsStylesheet } from "../../Stylesheets/GneralComponentsS
 import { ShortcutIconsProps } from "../../Models/SharedProps";
 import { useTheme } from "../../Theme/Index";
 import axios from "axios";
+import { billsValePlaceholder } from "../../Models/DummyData";
 
 const Iconsets: ShortcutIconsProps[] = [
   {
@@ -141,7 +142,7 @@ const Bills: React.FC<any> = () => {
 
       <View style={{ display: "flex", flex: 1 }}>
         <ListComponent
-          props={dataset}
+          props={dataset && billsValePlaceholder}
           hasHeader={true}
           header={"Bills history"}
         />

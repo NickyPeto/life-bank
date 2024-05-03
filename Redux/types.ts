@@ -29,6 +29,19 @@ export interface UserState {
   success: boolean; // for monitoring the registration process.
 }
 
+export interface Bills {
+  data: {
+    name: string;
+    description: string;
+    amount: string;
+    date: string;
+  };
+  createdAt: {
+    type: Date;
+    default?: Date;
+  };
+}
+
 export interface RootState {
   user: UserState;
   transactions: Transactions[];
