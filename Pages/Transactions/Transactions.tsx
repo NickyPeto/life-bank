@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { RootState } from "../../Redux/types";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTransactions } from "../../Redux/Actions";
+import { transactionsValuePlceHolder } from "../../Models/DummyData";
 
 const Transactions = (props: any) => {
   const { palette } = useTheme();
@@ -29,9 +30,10 @@ const Transactions = (props: any) => {
       ]}
     >
       <SearchBar />
-      {transactionsData && (
-        <ListComponent props={transactionsData} hasHeader={false} />
-      )}
+      <ListComponent
+        props={transactionsData && transactionsValuePlceHolder}
+        hasHeader={false}
+      />
     </View>
   );
 };

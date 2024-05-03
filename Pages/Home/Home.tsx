@@ -6,14 +6,13 @@ import ListComponent from "../../Components/ListComponent/ListComponent";
 
 import { useTheme } from "../../Theme/Index";
 
-import axios from "axios";
 import HomeHeader from "./home-header/HomeHeader";
 import HomeIconTab from "./home-icon-tab/HomeIconTab";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { RootState } from "../../Redux/types";
 import { fetchTransactions } from "../../Redux/Actions";
-import store from "../../Redux/RootState";
+import { transactionsValuePlceHolder } from "../../Models/DummyData";
 
 const Home: React.FC<any> = () => {
   const { palette } = useTheme();
@@ -37,13 +36,12 @@ const Home: React.FC<any> = () => {
       <HomeHeader />
       <View style={homeStyleSheet.homeTabContainer}>
         <HomeIconTab props={transactionsData} />
-        {transactionsData.length > 1 && (
-          <ListComponent
-            props={transactionsData}
-            hasHeader={true}
-            header={"Latest Transactions"}
-          />
-        )}
+        <ListComponent
+          props={transactionsData && transactionsValuePlceHolder}
+          hasHeader={true}
+          a
+          header={"Latest Transactions"}
+        />
       </View>
     </SafeAreaView>
   );
